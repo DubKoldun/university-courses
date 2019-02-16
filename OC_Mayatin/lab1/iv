@@ -1,0 +1,10 @@
+#!/bin/bash
+size=0
+read number
+while [[ $number%2 -ne 0 ]]
+do
+let size=$size+1
+read number
+done
+echo "${size+1}"
+
