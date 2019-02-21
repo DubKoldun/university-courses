@@ -1,5 +1,5 @@
 #!/bin/bash
-if  [[ $# -ne 0 ]]
+if  [[ $# -eq 0 ]]
 then
 echo "Wrong number of arguments"
 exit 1
