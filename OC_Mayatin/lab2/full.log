@@ -1,0 +1,408 @@
+	Warning:  warning, (EE) error, (NI) not implemented, (??) unknown.
+[    39.192] Warning:  The directory "/usr/share/fonts/X11/cyrillic" does not exist.
+[    39.192] Warning:  The directory "/usr/share/fonts/X11/100dpi/" does not exist.
+[    39.193] Warning:  The directory "/usr/share/fonts/X11/75dpi/" does not exist.
+[    39.193] Warning:  The directory "/usr/share/fonts/X11/100dpi" does not exist.
+[    39.193] Warning:  The directory "/usr/share/fonts/X11/75dpi" does not exist.
+[    39.561] Warning:  Falling back to old probe method for fbdev
+[    39.561] Warning:  Falling back to old probe method for vesa
+[    41.175] Warning:  Warning, couldn't open module synaptics
+	(++) from command line, (!!) notice, Information:  informational,
+[    39.193] Information:  The server relies on udev to provide the list of input devices.
+[    39.193] Information:  Loader magic: 0x55d96f80f020
+[    39.193] Information:  Module ABI versions:
+[    39.196] Information:  systemd-logind: logind integration requires -keeptty and -keeptty was not provided, disabling logind integration
+[    39.198] Information:  xfree86: Adding drm device (/dev/dri/card0)
+[    39.212] Information:  xfree86: Adding drm device (/dev/dri/card1)
+[    39.221] Information:  LoadModule: "glx"
+[    39.221] Information:  Loading /usr/lib/xorg/modules/extensions/libglx.so
+[    39.500] Information:  Module glx: vendor="X.Org Foundation"
+[    39.500] Information:  LoadModule: "nouveau"
+[    39.500] Information:  Loading /usr/lib/xorg/modules/drivers/nouveau_drv.so
+[    39.539] Information:  Module nouveau: vendor="X.Org Foundation"
+[    39.539] Information:  LoadModule: "modesetting"
+[    39.539] Information:  Loading /usr/lib/xorg/modules/drivers/modesetting_drv.so
+[    39.539] Information:  Module modesetting: vendor="X.Org Foundation"
+[    39.539] Information:  LoadModule: "fbdev"
+[    39.539] Information:  Loading /usr/lib/xorg/modules/drivers/fbdev_drv.so
+[    39.540] Information:  Module fbdev: vendor="X.Org Foundation"
+[    39.540] Information:  LoadModule: "vesa"
+[    39.540] Information:  Loading /usr/lib/xorg/modules/drivers/vesa_drv.so
+[    39.540] Information:  Module vesa: vendor="X.Org Foundation"
+[    39.540] Information:  NOUVEAU driver Date:   Fri Apr 21 14:41:17 2017 -0400
+[    39.540] Information:  NOUVEAU driver for NVIDIA chipset families :
+[    39.541] Information:  modesetting: Driver for Modesetting Kernel Drivers: kms
+[    39.541] Information:  FBDEV: driver for framebuffer: fbdev
+[    39.541] Information:  VESA: driver for VESA chipsets: vesa
+[    39.561] Information:  modeset(0): using drv /dev/dri/card0
+[    39.561] Information:  Loading sub module "fbdevhw"
+[    39.561] Information:  LoadModule: "fbdevhw"
+[    39.561] Information:  Loading /usr/lib/xorg/modules/libfbdevhw.so
+[    39.561] Information:  Module fbdevhw: vendor="X.Org Foundation"
+[    39.562] Information:  [drm] nouveau interface version: 1.3.1
+[    39.562] Information:  modeset(0): Creating default Display subsection in Screen section
+[    39.562] Information:  Loading sub module "glamoregl"
+[    39.562] Information:  LoadModule: "glamoregl"
+[    39.563] Information:  Loading /usr/lib/xorg/modules/libglamoregl.so
+[    39.751] Information:  Module glamoregl: vendor="X.Org Foundation"
+[    39.751] Information:  glamor: OpenGL accelerated X.org driver based.
+[    40.162] Information:  glamor: EGL version 1.4 (DRI2):
+[    40.277] Information:  modeset(0): glamor initialized
+[    40.278] Information:  modeset(0): Output eDP-1 has no monitor section
+[    40.278] Information:  modeset(0): Output DP-1 has no monitor section
+[    40.288] Information:  modeset(0): Output HDMI-1 has no monitor section
+[    40.300] Information:  modeset(0): Output DP-2 has no monitor section
+[    40.309] Information:  modeset(0): Output HDMI-2 has no monitor section
+[    40.311] Information:  modeset(0): EDID for output eDP-1
+[    40.311] Information:  modeset(0): Manufacturer: LGD  Model: 4e1  Serial#: 0
+[    40.311] Information:  modeset(0): Year: 2015  Week: 0
+[    40.311] Information:  modeset(0): EDID Version: 1.4
+[    40.311] Information:  modeset(0): Digital Display Input
+[    40.311] Information:  modeset(0): 6 bits per channel
+[    40.311] Information:  modeset(0): Digital interface is DisplayPort
+[    40.311] Information:  modeset(0): Max Image Size [cm]: horiz.: 34  vert.: 19
+[    40.311] Information:  modeset(0): Gamma: 2.20
+[    40.311] Information:  modeset(0): DPMS capabilities: StandBy Suspend Off
+[    40.311] Information:  modeset(0): Supported color encodings: RGB 4:4:4 YCrCb 4:4:4 
+[    40.311] Information:  modeset(0): First detailed timing is preferred mode
+[    40.311] Information:  modeset(0): Preferred mode is native pixel format and refresh rate
+[    40.311] Information:  modeset(0): redX: 0.578 redY: 0.344   greenX: 0.337 greenY: 0.571
+[    40.311] Information:  modeset(0): blueX: 0.159 blueY: 0.120   whiteX: 0.313 whiteY: 0.329
+[    40.311] Information:  modeset(0): Manufacturer's mask: 0
+[    40.311] Information:  modeset(0): Supported detailed timing:
+[    40.311] Information:  modeset(0): clock: 76.3 MHz   Image Size:  344 x 194 mm
+[    40.311] Information:  modeset(0): h_active: 1366  h_sync: 1414  h_sync_end 1446 h_blank_end 1610 h_border: 0
+[    40.311] Information:  modeset(0): v_active: 768  v_sync: 771  v_sync_end 776 v_blanking: 790 v_border: 0
+[    40.311] Information:  modeset(0):  LG Display
+[    40.311] Information:  modeset(0):  LP156WHB-TPC1
+[    40.311] Information:  modeset(0): EDID (in hex):
+[    40.311] Information:  modeset(0): 	00ffffffffffff0030e4e10400000000
+[    40.312] Information:  modeset(0): 	0019010495221378ea05f59458569228
+[    40.312] Information:  modeset(0): 	1e505400000001010101010101010101
+[    40.312] Information:  modeset(0): 	010101010101d01d56f4500016303020
+[    40.312] Information:  modeset(0): 	350058c2100000190000000000000000
+[    40.312] Information:  modeset(0): 	00000000000000000000000000fe004c
+[    40.312] Information:  modeset(0): 	4720446973706c61790a2020000000fe
+[    40.312] Information:  modeset(0): 	004c503135365748422d545043310039
+[    40.312] Information:  modeset(0): Printing probed modes for output eDP-1
+[    40.312] Information:  modeset(0): Modeline "1366x768"x60.0   76.32  1366 1414 1446 1610  768 771 776 790 -hsync -vsync (47.4 kHz eP)
+[    40.312] Information:  modeset(0): Modeline "1360x768"x59.8   84.75  1360 1432 1568 1776  768 771 781 798 -hsync +vsync (47.7 kHz d)
+[    40.313] Information:  modeset(0): Modeline "1360x768"x60.0   72.00  1360 1408 1440 1520  768 771 781 790 +hsync -vsync (47.4 kHz d)
+[    40.313] Information:  modeset(0): Modeline "1280x720"x120.0  156.12  1280 1376 1512 1744  720 721 724 746 doublescan -hsync +vsync (89.5 kHz d)
+[    40.313] Information:  modeset(0): Modeline "1280x720"x120.0  120.75  1280 1304 1320 1360  720 721 724 740 doublescan +hsync -vsync (88.8 kHz d)
+[    40.313] Information:  modeset(0): Modeline "1280x720"x59.9   74.50  1280 1344 1472 1664  720 723 728 748 -hsync +vsync (44.8 kHz d)
+[    40.313] Information:  modeset(0): Modeline "1280x720"x59.7   63.75  1280 1328 1360 1440  720 723 728 741 +hsync -vsync (44.3 kHz d)
+[    40.313] Information:  modeset(0): Modeline "1024x768"x120.1  133.47  1024 1100 1212 1400  768 768 770 794 doublescan -hsync +vsync (95.3 kHz d)
+[    40.313] Information:  modeset(0): Modeline "1024x768"x60.0   65.00  1024 1048 1184 1344  768 771 777 806 -hsync -vsync (48.4 kHz d)
+[    40.313] Information:  modeset(0): Modeline "960x720"x120.0  117.00  960 1024 1128 1300  720 720 722 750 doublescan -hsync +vsync (90.0 kHz d)
+[    40.313] Information:  modeset(0): Modeline "928x696"x120.1  109.15  928 976 1088 1264  696 696 698 719 doublescan -hsync +vsync (86.4 kHz d)
+[    40.313] Information:  modeset(0): Modeline "896x672"x120.0  102.40  896 960 1060 1224  672 672 674 697 doublescan -hsync +vsync (83.7 kHz d)
+[    40.313] Information:  modeset(0): Modeline "1024x576"x119.9   98.50  1024 1092 1200 1376  576 577 580 597 doublescan -hsync +vsync (71.6 kHz d)
+[    40.313] Information:  modeset(0): Modeline "1024x576"x119.9   78.38  1024 1048 1064 1104  576 577 580 592 doublescan +hsync -vsync (71.0 kHz d)
+[    40.313] Information:  modeset(0): Modeline "1024x576"x59.9   46.50  1024 1064 1160 1296  576 579 584 599 -hsync +vsync (35.9 kHz d)
+[    40.313] Information:  modeset(0): Modeline "1024x576"x59.8   42.00  1024 1072 1104 1184  576 579 584 593 +hsync -vsync (35.5 kHz d)
+[    40.313] Information:  modeset(0): Modeline "960x600"x119.9   96.62  960 1028 1128 1296  600 601 604 622 doublescan -hsync +vsync (74.6 kHz d)
+[    40.313] Information:  modeset(0): Modeline "960x600"x120.0   77.00  960 984 1000 1040  600 601 604 617 doublescan +hsync -vsync (74.0 kHz d)
+[    40.313] Information:  modeset(0): Modeline "960x540"x119.9   86.50  960 1024 1124 1288  540 541 544 560 doublescan -hsync +vsync (67.2 kHz d)
+[    40.313] Information:  modeset(0): Modeline "960x540"x120.0   69.25  960 984 1000 1040  540 541 544 555 doublescan +hsync -vsync (66.6 kHz d)
+[    40.313] Information:  modeset(0): Modeline "960x540"x59.6   40.75  960 992 1088 1216  540 543 548 562 -hsync +vsync (33.5 kHz d)
+[    40.313] Information:  modeset(0): Modeline "960x540"x59.8   37.25  960 1008 1040 1120  540 543 548 556 +hsync -vsync (33.3 kHz d)
+[    40.313] Information:  modeset(0): Modeline "800x600"x120.0   81.00  800 832 928 1080  600 600 602 625 doublescan +hsync +vsync (75.0 kHz d)
+[    40.313] Information:  modeset(0): Modeline "800x600"x60.3   40.00  800 840 968 1056  600 601 605 628 +hsync +vsync (37.9 kHz d)
+[    40.313] Information:  modeset(0): Modeline "800x600"x56.2   36.00  800 824 896 1024  600 601 603 625 +hsync +vsync (35.2 kHz d)
+[    40.313] Information:  modeset(0): Modeline "840x525"x120.0   73.12  840 892 980 1120  525 526 529 544 doublescan -hsync +vsync (65.3 kHz d)
+[    40.313] Information:  modeset(0): Modeline "840x525"x119.8   59.50  840 864 880 920  525 526 529 540 doublescan +hsync -vsync (64.7 kHz d)
+[    40.313] Information:  modeset(0): Modeline "864x486"x59.9   32.50  864 888 968 1072  486 489 494 506 -hsync +vsync (30.3 kHz d)
+[    40.313] Information:  modeset(0): Modeline "864x486"x59.6   30.50  864 912 944 1024  486 489 494 500 +hsync -vsync (29.8 kHz d)
+[    40.313] Information:  modeset(0): Modeline "800x512"x120.3   51.56  800 800 828 832  512 512 514 515 doublescan +hsync +vsync (62.0 kHz d)
+[    40.313] Information:  modeset(0): Modeline "700x525"x120.0   61.00  700 744 820 940  525 526 532 541 doublescan +hsync +vsync (64.9 kHz d)
+[    40.313] Information:  modeset(0): Modeline "800x450"x119.9   59.12  800 848 928 1056  450 451 454 467 doublescan -hsync +vsync (56.0 kHz d)
+[    40.313] Information:  modeset(0): Modeline "800x450"x119.6   48.75  800 824 840 880  450 451 454 463 doublescan +hsync -vsync (55.4 kHz d)
+[    40.313] Information:  modeset(0): Modeline "640x512"x120.0   54.00  640 664 720 844  512 512 514 533 doublescan +hsync +vsync (64.0 kHz d)
+[    40.313] Information:  modeset(0): Modeline "720x450"x119.8   53.25  720 760 836 952  450 451 454 467 doublescan -hsync +vsync (55.9 kHz d)
+[    40.313] Information:  modeset(0): Modeline "700x450"x119.9   51.75  700 740 812 924  450 451 456 467 doublescan -hsync +vsync (56.0 kHz d)
+[    40.313] Information:  modeset(0): Modeline "700x450"x119.8   43.25  700 724 740 780  450 451 456 463 doublescan +hsync -vsync (55.4 kHz d)
+[    40.313] Information:  modeset(0): Modeline "640x480"x120.0   54.00  640 688 744 900  480 480 482 500 doublescan +hsync +vsync (60.0 kHz d)
+[    40.313] Information:  modeset(0): Modeline "640x480"x59.9   25.18  640 656 752 800  480 490 492 525 -hsync -vsync (31.5 kHz d)
+[    40.313] Information:  modeset(0): Modeline "720x405"x59.5   22.50  720 744 808 896  405 408 413 422 -hsync +vsync (25.1 kHz d)
+[    40.314] Information:  modeset(0): Modeline "720x405"x59.0   21.75  720 768 800 880  405 408 413 419 +hsync -vsync (24.7 kHz d)
+[    40.314] Information:  modeset(0): Modeline "684x384"x119.8   42.62  684 720 788 892  384 385 390 399 doublescan -hsync +vsync (47.8 kHz d)
+[    40.314] Information:  modeset(0): Modeline "684x384"x119.7   36.12  684 708 724 764  384 385 390 395 doublescan +hsync -vsync (47.3 kHz d)
+[    40.314] Information:  modeset(0): Modeline "680x384"x119.6   42.38  680 716 784 888  384 385 390 399 doublescan -hsync +vsync (47.7 kHz d)
+[    40.314] Information:  modeset(0): Modeline "680x384"x119.9   36.00  680 704 720 760  384 385 390 395 doublescan +hsync -vsync (47.4 kHz d)
+[    40.314] Information:  modeset(0): Modeline "640x400"x119.8   41.75  640 676 740 840  400 401 404 415 doublescan -hsync +vsync (49.7 kHz d)
+[    40.314] Information:  modeset(0): Modeline "640x400"x120.0   35.50  640 664 680 720  400 401 404 411 doublescan +hsync -vsync (49.3 kHz d)
+[    40.314] Information:  modeset(0): Modeline "576x432"x120.1   40.81  576 608 668 760  432 432 434 447 doublescan -hsync +vsync (53.7 kHz d)
+[    40.314] Information:  modeset(0): Modeline "640x360"x119.7   37.25  640 672 736 832  360 361 364 374 doublescan -hsync +vsync (44.8 kHz d)
+[    40.314] Information:  modeset(0): Modeline "640x360"x119.7   31.88  640 664 680 720  360 361 364 370 doublescan +hsync -vsync (44.3 kHz d)
+[    40.314] Information:  modeset(0): Modeline "640x360"x59.8   18.00  640 664 720 800  360 363 368 376 -hsync +vsync (22.5 kHz d)
+[    40.314] Information:  modeset(0): Modeline "640x360"x59.3   17.75  640 688 720 800  360 363 368 374 +hsync -vsync (22.2 kHz d)
+[    40.314] Information:  modeset(0): Modeline "512x384"x120.0   32.50  512 524 592 672  384 385 388 403 doublescan -hsync -vsync (48.4 kHz d)
+[    40.314] Information:  modeset(0): Modeline "512x288"x120.0   23.25  512 532 580 648  288 289 292 299 doublescan -hsync +vsync (35.9 kHz d)
+[    40.314] Information:  modeset(0): Modeline "512x288"x119.8   21.00  512 536 552 592  288 289 292 296 doublescan +hsync -vsync (35.5 kHz d)
+[    40.314] Information:  modeset(0): Modeline "480x270"x119.3   20.38  480 496 544 608  270 271 274 281 doublescan -hsync +vsync (33.5 kHz d)
+[    40.314] Information:  modeset(0): Modeline "480x270"x119.6   18.62  480 504 520 560  270 271 274 278 doublescan +hsync -vsync (33.3 kHz d)
+[    40.314] Information:  modeset(0): Modeline "400x300"x120.6   20.00  400 420 484 528  300 300 302 314 doublescan +hsync +vsync (37.9 kHz d)
+[    40.314] Information:  modeset(0): Modeline "400x300"x112.7   18.00  400 412 448 512  300 300 301 312 doublescan +hsync +vsync (35.2 kHz d)
+[    40.314] Information:  modeset(0): Modeline "432x243"x119.8   16.25  432 444 484 536  243 244 247 253 doublescan -hsync +vsync (30.3 kHz d)
+[    40.314] Information:  modeset(0): Modeline "432x243"x119.1   15.25  432 456 472 512  243 244 247 250 doublescan +hsync -vsync (29.8 kHz d)
+[    40.314] Information:  modeset(0): Modeline "320x240"x120.1   12.59  320 328 376 400  240 245 246 262 doublescan -hsync -vsync (31.5 kHz d)
+[    40.314] Information:  modeset(0): Modeline "360x202"x119.0   11.25  360 372 404 448  202 204 206 211 doublescan -hsync +vsync (25.1 kHz d)
+[    40.314] Information:  modeset(0): Modeline "360x202"x118.3   10.88  360 384 400 440  202 204 206 209 doublescan +hsync -vsync (24.7 kHz d)
+[    40.314] Information:  modeset(0): Modeline "320x180"x119.7    9.00  320 332 360 400  180 181 184 188 doublescan -hsync +vsync (22.5 kHz d)
+[    40.314] Information:  modeset(0): Modeline "320x180"x118.6    8.88  320 344 360 400  180 181 184 187 doublescan +hsync -vsync (22.2 kHz d)
+[    40.314] Information:  modeset(0): EDID for output DP-1
+[    40.323] Information:  modeset(0): EDID for output HDMI-1
+[    40.334] Information:  modeset(0): EDID for output DP-2
+[    40.344] Information:  modeset(0): EDID for output HDMI-2
+[    40.344] Information:  modeset(0): Output eDP-1 connected
+[    40.344] Information:  modeset(0): Output DP-1 disconnected
+[    40.344] Information:  modeset(0): Output HDMI-1 disconnected
+[    40.344] Information:  modeset(0): Output DP-2 disconnected
+[    40.344] Information:  modeset(0): Output HDMI-2 disconnected
+[    40.345] Information:  modeset(0): Using exact sizes for initial modes
+[    40.345] Information:  modeset(0): Output eDP-1 using initial mode 1366x768 +0+0
+[    40.345] Information:  Loading sub module "fb"
+[    40.345] Information:  LoadModule: "fb"
+[    40.346] Information:  Loading /usr/lib/xorg/modules/libfb.so
+[    40.346] Information:  Module fb: vendor="X.Org Foundation"
+[    40.347] Information:  Loading sub module "dri2"
+[    40.347] Information:  LoadModule: "dri2"
+[    40.347] Information:  Module "dri2" already built-in
+[    40.349] Information:  NOUVEAU(G0): Modeline "1366x768"x59.8   84.75  1360 1432 1568 1776  768 771 781 798 -hsync +vsync (47.7 kHz)
+[    40.349] Information:  Loading sub module "fb"
+[    40.349] Information:  LoadModule: "fb"
+[    40.350] Information:  Loading /usr/lib/xorg/modules/libfb.so
+[    40.350] Information:  Module fb: vendor="X.Org Foundation"
+[    40.350] Information:  Loading sub module "shadowfb"
+[    40.350] Information:  LoadModule: "shadowfb"
+[    40.351] Information:  Loading /usr/lib/xorg/modules/libshadowfb.so
+[    40.351] Information:  Module shadowfb: vendor="X.Org Foundation"
+[    40.351] Information:  UnloadModule: "fbdev"
+[    40.352] Information:  Unloading fbdev
+[    40.352] Information:  UnloadSubModule: "fbdevhw"
+[    40.352] Information:  Unloading fbdevhw
+[    40.352] Information:  UnloadModule: "vesa"
+[    40.352] Information:  Unloading vesa
+[    40.423] Information:  NOUVEAU(G0): Channel setup complete.
+[    40.424] Information:  NOUVEAU(G0): [COPY] async initialised.
+[    40.442] Information:  NOUVEAU(G0): Hardware support for Present enabled
+[    40.442] Information:  NOUVEAU(G0): [DRI2] Setup complete
+[    40.442] Information:  NOUVEAU(G0): [DRI2]   DRI driver: nouveau
+[    40.442] Information:  NOUVEAU(G0): [DRI2]   VDPAU driver: nouveau
+[    40.442] Information:  Loading sub module "exa"
+[    40.442] Information:  LoadModule: "exa"
+[    40.442] Information:  Loading /usr/lib/xorg/modules/libexa.so
+[    40.442] Information:  Module exa: vendor="X.Org Foundation"
+[    40.443] Information:  EXA(256): Driver allocated offscreen pixmaps
+[    40.443] Information:  EXA(256): Driver registered support for the following operations:
+[    40.443] Information:          Solid
+[    40.443] Information:          Copy
+[    40.443] Information:          Composite (RENDER acceleration)
+[    40.443] Information:          UploadToScreen
+[    40.443] Information:          DownloadFromScreen
+[    40.443] Information:  NOUVEAU(G0): [XvMC] Associated with Nouveau GeForce 8/9 Textured Video.
+[    40.443] Information:  NOUVEAU(G0): RandR 1.2 enabled, ignore the following RandR disabled message.
+[    40.631] Information:  modeset(0): RandR 1.2 enabled, ignore the following RandR disabled message.
+[    40.697] Information:  modeset(0): [DRI2] Setup complete
+[    40.697] Information:  modeset(0): [DRI2]   DRI driver: i965
+[    40.697] Information:  modeset(0): [DRI2]   VDPAU driver: i965
+[    40.722] Information:  SELinux: Disabled on system
+[    40.732] Information:  AIGLX: enabled GLX_MESA_copy_sub_buffer
+[    40.732] Information:  AIGLX: enabled GLX_ARB_create_context
+[    40.732] Information:  AIGLX: enabled GLX_ARB_create_context_profile
+[    40.732] Information:  AIGLX: enabled GLX_EXT_create_context_es{,2}_profile
+[    40.732] Information:  AIGLX: enabled GLX_INTEL_swap_event
+[    40.732] Information:  AIGLX: enabled GLX_SGI_swap_control
+[    40.732] Information:  AIGLX: enabled GLX_EXT_framebuffer_sRGB
+[    40.732] Information:  AIGLX: enabled GLX_ARB_fbconfig_float
+[    40.732] Information:  AIGLX: enabled GLX_EXT_fbconfig_packed_float
+[    40.732] Information:  AIGLX: GLX_EXT_texture_from_pixmap backed by buffer objects
+[    40.732] Information:  AIGLX: enabled GLX_ARB_create_context_robustness
+[    40.733] Information:  AIGLX: Loaded and initialized i965
+[    40.733] Information:  GLX: Initialized DRI2 GL provider for screen 0
+[    40.734] Information:  NOUVEAU(G0): NVEnterVT is called.
+[    40.739] Information:  modeset(0): Damage tracking initialized
+[    40.739] Information:  modeset(0): Setting screen physical size to 361 x 203
+[    40.884] Information:  config/udev: Adding input device Power Button (/dev/input/event2)
+[    40.885] Information:  LoadModule: "libinput"
+[    40.885] Information:  Loading /usr/lib/xorg/modules/input/libinput_drv.so
+[    40.912] Information:  Module libinput: vendor="X.Org Foundation"
+[    40.912] Information:  Using input driver 'libinput' for 'Power Button'
+[    40.913] Information:  event2  - Power Button: is tagged by udev as: Keyboard
+[    40.913] Information:  event2  - Power Button: device is a keyboard
+[    40.913] Information:  event2  - Power Button: device removed
+[    40.945] Information:  XINPUT: Adding extended input device "Power Button" (type: KEYBOARD, id 6)
+[    41.008] Information:  event2  - Power Button: is tagged by udev as: Keyboard
+[    41.008] Information:  event2  - Power Button: device is a keyboard
+[    41.009] Information:  config/udev: Adding input device Asus Wireless Radio Control (/dev/input/event6)
+[    41.009] Information:  Using input driver 'libinput' for 'Asus Wireless Radio Control'
+[    41.010] Information:  event6  - Asus Wireless Radio Control: is tagged by udev as: Keyboard
+[    41.010] Information:  event6  - Asus Wireless Radio Control: device is a keyboard
+[    41.010] Information:  event6  - Asus Wireless Radio Control: device removed
+[    41.048] Information:  XINPUT: Adding extended input device "Asus Wireless Radio Control" (type: KEYBOARD, id 7)
+[    41.053] Information:  event6  - Asus Wireless Radio Control: is tagged by udev as: Keyboard
+[    41.053] Information:  event6  - Asus Wireless Radio Control: device is a keyboard
+[    41.056] Information:  config/udev: Adding input device Video Bus (/dev/input/event4)
+[    41.056] Information:  Using input driver 'libinput' for 'Video Bus'
+[    41.059] Information:  event4  - Video Bus: is tagged by udev as: Keyboard
+[    41.059] Information:  event4  - Video Bus: device is a keyboard
+[    41.059] Information:  event4  - Video Bus: device removed
+[    41.072] Information:  XINPUT: Adding extended input device "Video Bus" (type: KEYBOARD, id 8)
+[    41.074] Information:  event4  - Video Bus: is tagged by udev as: Keyboard
+[    41.074] Information:  event4  - Video Bus: device is a keyboard
+[    41.075] Information:  config/udev: Adding input device Video Bus (/dev/input/event5)
+[    41.076] Information:  Using input driver 'libinput' for 'Video Bus'
+[    41.078] Information:  event5  - Video Bus: is tagged by udev as: Keyboard
+[    41.078] Information:  event5  - Video Bus: device is a keyboard
+[    41.078] Information:  event5  - Video Bus: device removed
+[    41.096] Information:  XINPUT: Adding extended input device "Video Bus" (type: KEYBOARD, id 9)
+[    41.100] Information:  event5  - Video Bus: is tagged by udev as: Keyboard
+[    41.100] Information:  event5  - Video Bus: device is a keyboard
+[    41.102] Information:  config/udev: Adding input device Lid Switch (/dev/input/event0)
+[    41.102] Information:  No input driver specified, ignoring this device.
+[    41.102] Information:  This device may have been added with another device file.
+[    41.104] Information:  config/udev: Adding input device Sleep Button (/dev/input/event1)
+[    41.105] Information:  Using input driver 'libinput' for 'Sleep Button'
+[    41.107] Information:  event1  - Sleep Button: is tagged by udev as: Keyboard
+[    41.107] Information:  event1  - Sleep Button: device is a keyboard
+[    41.107] Information:  event1  - Sleep Button: device removed
+[    41.120] Information:  XINPUT: Adding extended input device "Sleep Button" (type: KEYBOARD, id 10)
+[    41.121] Information:  event1  - Sleep Button: is tagged by udev as: Keyboard
+[    41.121] Information:  event1  - Sleep Button: device is a keyboard
+[    41.124] Information:  config/udev: Adding input device USB2.0 VGA UVC WebCam: USB2.0 V (/dev/input/event11)
+[    41.124] Information:  Using input driver 'libinput' for 'USB2.0 VGA UVC WebCam: USB2.0 V'
+[    41.126] Information:  event11 - USB2.0 VGA UVC WebCam: USB2.0 V: is tagged by udev as: Keyboard
+[    41.126] Information:  event11 - USB2.0 VGA UVC WebCam: USB2.0 V: device is a keyboard
+[    41.126] Information:  event11 - USB2.0 VGA UVC WebCam: USB2.0 V: device removed
+[    41.160] Information:  XINPUT: Adding extended input device "USB2.0 VGA UVC WebCam: USB2.0 V" (type: KEYBOARD, id 11)
+[    41.168] Information:  event11 - USB2.0 VGA UVC WebCam: USB2.0 V: is tagged by udev as: Keyboard
+[    41.168] Information:  event11 - USB2.0 VGA UVC WebCam: USB2.0 V: device is a keyboard
+[    41.172] Information:  config/udev: Adding input device HDA Intel PCH Headphone (/dev/input/event9)
+[    41.172] Information:  No input driver specified, ignoring this device.
+[    41.172] Information:  This device may have been added with another device file.
+[    41.173] Information:  config/udev: Adding input device HDA Intel PCH HDMI/DP,pcm=3 (/dev/input/event10)
+[    41.173] Information:  No input driver specified, ignoring this device.
+[    41.173] Information:  This device may have been added with another device file.
+[    41.174] Information:  config/udev: Adding input device ELAN1200:00 04F3:301A Touchpad (/dev/input/event7)
+[    41.174] Information:  LoadModule: "synaptics"
+[    41.175] Information:  UnloadModule: "synaptics"
+[    41.175] Information:  Unloading synaptics
+[    41.175] Information:  Falling back to input driver `libinput'
+[    41.175] Information:  Using input driver 'libinput' for 'ELAN1200:00 04F3:301A Touchpad'
+[    41.186] Information:  event7  - ELAN1200:00 04F3:301A Touchpad: is tagged by udev as: Touchpad
+[    41.187] Information:  event7  - ELAN1200:00 04F3:301A Touchpad: device is a touchpad
+[    41.187] Information:  event7  - ELAN1200:00 04F3:301A Touchpad: device removed
+[    41.229] Information:  XINPUT: Adding extended input device "ELAN1200:00 04F3:301A Touchpad" (type: TOUCHPAD, id 12)
+[    41.236] Information:  event7  - ELAN1200:00 04F3:301A Touchpad: is tagged by udev as: Touchpad
+[    41.236] Information:  event7  - ELAN1200:00 04F3:301A Touchpad: device is a touchpad
+[    41.238] Information:  config/udev: Adding input device ELAN1200:00 04F3:301A Touchpad (/dev/input/mouse0)
+[    41.239] Information:  config/udev: Adding input device Asus WMI hotkeys (/dev/input/event8)
+[    41.239] Information:  Using input driver 'libinput' for 'Asus WMI hotkeys'
+[    41.240] Information:  event8  - Asus WMI hotkeys: is tagged by udev as: Keyboard
+[    41.240] Information:  event8  - Asus WMI hotkeys: device is a keyboard
+[    41.240] Information:  event8  - Asus WMI hotkeys: device removed
+[    41.260] Information:  XINPUT: Adding extended input device "Asus WMI hotkeys" (type: KEYBOARD, id 13)
+[    41.263] Information:  event8  - Asus WMI hotkeys: is tagged by udev as: Keyboard
+[    41.263] Information:  event8  - Asus WMI hotkeys: device is a keyboard
+[    41.265] Information:  config/udev: Adding input device AT Translated Set 2 keyboard (/dev/input/event3)
+[    41.265] Information:  Using input driver 'libinput' for 'AT Translated Set 2 keyboard'
+[    41.268] Information:  event3  - AT Translated Set 2 keyboard: is tagged by udev as: Keyboard
+[    41.268] Information:  event3  - AT Translated Set 2 keyboard: device is a keyboard
+[    41.268] Information:  event3  - AT Translated Set 2 keyboard: device removed
+[    41.288] Information:  XINPUT: Adding extended input device "AT Translated Set 2 keyboard" (type: KEYBOARD, id 14)
+[    41.292] Information:  event3  - AT Translated Set 2 keyboard: is tagged by udev as: Keyboard
+[    41.292] Information:  event3  - AT Translated Set 2 keyboard: device is a keyboard
+[    77.201] Information:  modeset(0): EDID vendor "LGD", prod id 1249
+[    77.202] Information:  modeset(0): Printing DDC gathered Modelines:
+[    77.202] Information:  modeset(0): Modeline "1366x768"x0.0   76.32  1366 1414 1446 1610  768 771 776 790 -hsync -vsync (47.4 kHz eP)
+[    77.377] Information:  modeset(0): EDID vendor "LGD", prod id 1249
+[    77.377] Information:  modeset(0): Printing DDC gathered Modelines:
+[    77.377] Information:  modeset(0): Modeline "1366x768"x0.0   76.32  1366 1414 1446 1610  768 771 776 790 -hsync -vsync (47.4 kHz eP)
+[    77.412] Information:  modeset(0): EDID vendor "LGD", prod id 1249
+[    77.412] Information:  modeset(0): Printing DDC gathered Modelines:
+[    77.412] Information:  modeset(0): Modeline "1366x768"x0.0   76.32  1366 1414 1446 1610  768 771 776 790 -hsync -vsync (47.4 kHz eP)
+[    78.344] Information:  modeset(0): EDID vendor "LGD", prod id 1249
+[    78.344] Information:  modeset(0): Printing DDC gathered Modelines:
+[    78.344] Information:  modeset(0): Modeline "1366x768"x0.0   76.32  1366 1414 1446 1610  768 771 776 790 -hsync -vsync (47.4 kHz eP)
+[    78.758] Information:  modeset(0): EDID vendor "LGD", prod id 1249
+[    78.758] Information:  modeset(0): Printing DDC gathered Modelines:
+[    78.758] Information:  modeset(0): Modeline "1366x768"x0.0   76.32  1366 1414 1446 1610  768 771 776 790 -hsync -vsync (47.4 kHz eP)
+[    82.579] Information:  modeset(0): EDID vendor "LGD", prod id 1249
+[    82.580] Information:  modeset(0): Printing DDC gathered Modelines:
+[    82.580] Information:  modeset(0): Modeline "1366x768"x0.0   76.32  1366 1414 1446 1610  768 771 776 790 -hsync -vsync (47.4 kHz eP)
+[  3187.577] Information:  modeset(0): EDID vendor "LGD", prod id 1249
+[  3187.577] Information:  modeset(0): Printing DDC gathered Modelines:
+[  3187.577] Information:  modeset(0): Modeline "1366x768"x0.0   76.32  1366 1414 1446 1610  768 771 776 790 -hsync -vsync (47.4 kHz eP)
+[  3187.621] Information:  modeset(0): EDID vendor "LGD", prod id 1249
+[  3187.621] Information:  modeset(0): Printing DDC gathered Modelines:
+[  3187.621] Information:  modeset(0): Modeline "1366x768"x0.0   76.32  1366 1414 1446 1610  768 771 776 790 -hsync -vsync (47.4 kHz eP)
+[  3199.102] Information:  modeset(0): EDID vendor "LGD", prod id 1249
+[  3199.103] Information:  modeset(0): Printing DDC gathered Modelines:
+[  3199.103] Information:  modeset(0): Modeline "1366x768"x0.0   76.32  1366 1414 1446 1610  768 771 776 790 -hsync -vsync (47.4 kHz eP)
+[  3689.978] Information:  modeset(0): EDID vendor "LGD", prod id 1249
+[  3689.978] Information:  modeset(0): Printing DDC gathered Modelines:
+[  3689.978] Information:  modeset(0): Modeline "1366x768"x0.0   76.32  1366 1414 1446 1610  768 771 776 790 -hsync -vsync (47.4 kHz eP)
+[  3690.008] Information:  modeset(0): EDID vendor "LGD", prod id 1249
+[  3690.008] Information:  modeset(0): Printing DDC gathered Modelines:
+[  3690.008] Information:  modeset(0): Modeline "1366x768"x0.0   76.32  1366 1414 1446 1610  768 771 776 790 -hsync -vsync (47.4 kHz eP)
+[  3710.724] Information:  modeset(0): EDID vendor "LGD", prod id 1249
+[  3710.724] Information:  modeset(0): Printing DDC gathered Modelines:
+[  3710.724] Information:  modeset(0): Modeline "1366x768"x0.0   76.32  1366 1414 1446 1610  768 771 776 790 -hsync -vsync (47.4 kHz eP)
+[ 19861.345] Information:  modeset(0): EDID vendor "LGD", prod id 1249
+[ 19861.374] Information:  modeset(0): Printing DDC gathered Modelines:
+[ 19861.374] Information:  modeset(0): Modeline "1366x768"x0.0   76.32  1366 1414 1446 1610  768 771 776 790 -hsync -vsync (47.4 kHz eP)
+[ 19861.923] Information:  modeset(0): EDID vendor "LGD", prod id 1249
+[ 19861.923] Information:  modeset(0): Printing DDC gathered Modelines:
+[ 19861.923] Information:  modeset(0): Modeline "1366x768"x0.0   76.32  1366 1414 1446 1610  768 771 776 790 -hsync -vsync (47.4 kHz eP)
+[ 19888.433] Information:  modeset(0): EDID vendor "LGD", prod id 1249
+[ 19888.433] Information:  modeset(0): Printing DDC gathered Modelines:
+[ 19888.433] Information:  modeset(0): Modeline "1366x768"x0.0   76.32  1366 1414 1446 1610  768 771 776 790 -hsync -vsync (47.4 kHz eP)
+[ 19909.132] Information:  modeset(0): EDID vendor "LGD", prod id 1249
+[ 19909.132] Information:  modeset(0): Printing DDC gathered Modelines:
+[ 19909.132] Information:  modeset(0): Modeline "1366x768"x0.0   76.32  1366 1414 1446 1610  768 771 776 790 -hsync -vsync (47.4 kHz eP)
+[ 19909.171] Information:  modeset(0): EDID vendor "LGD", prod id 1249
+[ 19909.171] Information:  modeset(0): Printing DDC gathered Modelines:
+[ 19909.171] Information:  modeset(0): Modeline "1366x768"x0.0   76.32  1366 1414 1446 1610  768 771 776 790 -hsync -vsync (47.4 kHz eP)
+[ 19930.414] Information:  modeset(0): EDID vendor "LGD", prod id 1249
+[ 19930.414] Information:  modeset(0): Printing DDC gathered Modelines:
+[ 19930.414] Information:  modeset(0): Modeline "1366x768"x0.0   76.32  1366 1414 1446 1610  768 771 776 790 -hsync -vsync (47.4 kHz eP)
+[ 20415.551] Information:  modeset(0): EDID vendor "LGD", prod id 1249
+[ 20415.551] Information:  modeset(0): Printing DDC gathered Modelines:
+[ 20415.551] Information:  modeset(0): Modeline "1366x768"x0.0   76.32  1366 1414 1446 1610  768 771 776 790 -hsync -vsync (47.4 kHz eP)
+[ 22210.737] Information:  modeset(0): EDID vendor "LGD", prod id 1249
+[ 22210.738] Information:  modeset(0): Printing DDC gathered Modelines:
+[ 22210.738] Information:  modeset(0): Modeline "1366x768"x0.0   76.32  1366 1414 1446 1610  768 771 776 790 -hsync -vsync (47.4 kHz eP)
+[ 22210.782] Information:  modeset(0): EDID vendor "LGD", prod id 1249
+[ 22210.782] Information:  modeset(0): Printing DDC gathered Modelines:
+[ 22210.782] Information:  modeset(0): Modeline "1366x768"x0.0   76.32  1366 1414 1446 1610  768 771 776 790 -hsync -vsync (47.4 kHz eP)
+[ 22231.346] Information:  modeset(0): EDID vendor "LGD", prod id 1249
+[ 22231.346] Information:  modeset(0): Printing DDC gathered Modelines:
+[ 22231.346] Information:  modeset(0): Modeline "1366x768"x0.0   76.32  1366 1414 1446 1610  768 771 776 790 -hsync -vsync (47.4 kHz eP)
+[ 36523.634] Information:  modeset(0): EDID vendor "LGD", prod id 1249
+[ 36523.649] Information:  modeset(0): Printing DDC gathered Modelines:
+[ 36523.649] Information:  modeset(0): Modeline "1366x768"x0.0   76.32  1366 1414 1446 1610  768 771 776 790 -hsync -vsync (47.4 kHz eP)
+[ 36523.703] Information:  modeset(0): EDID vendor "LGD", prod id 1249
+[ 36523.703] Information:  modeset(0): Printing DDC gathered Modelines:
+[ 36523.703] Information:  modeset(0): Modeline "1366x768"x0.0   76.32  1366 1414 1446 1610  768 771 776 790 -hsync -vsync (47.4 kHz eP)
+[ 36545.355] Information:  modeset(0): EDID vendor "LGD", prod id 1249
+[ 36545.355] Information:  modeset(0): Printing DDC gathered Modelines:
+[ 36545.355] Information:  modeset(0): Modeline "1366x768"x0.0   76.32  1366 1414 1446 1610  768 771 776 790 -hsync -vsync (47.4 kHz eP)
+[ 36841.795] Information:  modeset(0): EDID vendor "LGD", prod id 1249
+[ 36841.795] Information:  modeset(0): Printing DDC gathered Modelines:
+[ 36841.795] Information:  modeset(0): Modeline "1366x768"x0.0   76.32  1366 1414 1446 1610  768 771 776 790 -hsync -vsync (47.4 kHz eP)
+[ 36841.838] Information:  modeset(0): EDID vendor "LGD", prod id 1249
+[ 36841.838] Information:  modeset(0): Printing DDC gathered Modelines:
+[ 36841.838] Information:  modeset(0): Modeline "1366x768"x0.0   76.32  1366 1414 1446 1610  768 771 776 790 -hsync -vsync (47.4 kHz eP)
+[ 36862.294] Information:  modeset(0): EDID vendor "LGD", prod id 1249
+[ 36862.294] Information:  modeset(0): Printing DDC gathered Modelines:
+[ 36862.294] Information:  modeset(0): Modeline "1366x768"x0.0   76.32  1366 1414 1446 1610  768 771 776 790 -hsync -vsync (47.4 kHz eP)
+[ 50667.341] Information:  modeset(0): EDID vendor "LGD", prod id 1249
+[ 50667.365] Information:  modeset(0): Printing DDC gathered Modelines:
+[ 50667.365] Information:  modeset(0): Modeline "1366x768"x0.0   76.32  1366 1414 1446 1610  768 771 776 790 -hsync -vsync (47.4 kHz eP)
+[ 50667.403] Information:  modeset(0): EDID vendor "LGD", prod id 1249
+[ 50667.403] Information:  modeset(0): Printing DDC gathered Modelines:
+[ 50667.403] Information:  modeset(0): Modeline "1366x768"x0.0   76.32  1366 1414 1446 1610  768 771 776 790 -hsync -vsync (47.4 kHz eP)
+[ 50687.782] Information:  modeset(0): EDID vendor "LGD", prod id 1249
+[ 50687.782] Information:  modeset(0): Printing DDC gathered Modelines:
+[ 50687.782] Information:  modeset(0): Modeline "1366x768"x0.0   76.32  1366 1414 1446 1610  768 771 776 790 -hsync -vsync (47.4 kHz eP)

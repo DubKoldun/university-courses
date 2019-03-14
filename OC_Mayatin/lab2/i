@@ -1,0 +1,5 @@
+#!/bin/bash
+check="/home/vitaliy/lul/*" 
+task="/var/log/"
+grep -Erhs "^ACPI.*" $check > errors.log
+grep -rhs -P "(/[^/ ]*)+/?" /home/vitaliy/lab2/errors.log
