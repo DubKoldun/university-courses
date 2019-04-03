@@ -1,0 +1,13 @@
+module Main where
+
+import Grammar (Expr (..))
+import Lexer (alexScanTokens)
+import Parser (parsing)
+
+main :: IO ()
+main = do
+  input <- getLine
+  case parsing (alexScanTokens input) of
+      putStrLn $ show expr
+
+
