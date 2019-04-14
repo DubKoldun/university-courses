@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <list>
+#include <set>
 
 using std::cout;
 using std::cin;
@@ -42,7 +43,8 @@ public:
 
     int Dinic(int s, int t);
 
-    const vector<vector<Edge>> &returnGraph();
+    const vector<vector<Edge>> &returnGraph() const;
+
 
 private:
     int size_v;
@@ -112,8 +114,18 @@ int Graph::Dinic(int s, int t) {
     return answer;
 }
 
-vector<vector<Edge>> const &Graph::returnGraph() {
+vector<vector<Edge>> const &Graph::returnGraph() const {
     return graph;
+}
+
+void dfs(int vertex, vector<bool> & used, Graph const& g) {
+    if (used[vertex]) return;
+
+    used[vertex] = true;
+
+    for (auto i: g.returnGraph()[vertex]) {
+        if (i.flow != i.capacity) dfs(i.vertex, used, g);
+    }
 }
 
 int main() {
@@ -127,18 +139,35 @@ int main() {
         g.addEdge(a - 1, b - 1, c, i + 1);
     }
 
-    cout << g.Dinic(0, n - 1) << "\n";
+    g.Dinic(0, n - 1);
 
-    vector<int> answer(m, 0);
-    for (const auto& i: g.returnGraph()) {
-        for(auto const& j: i) {
-            if ((j.number > 0 && j.flow > 0) || (j.number < 0 && j.flow < 0)) answer[abs(j.number) - 1] = abs(j.flow);
-            else answer[abs(j.number) - 1] = -abs(j.flow);
+    vector<bool> left_part(n);
+    dfs(0, left_part, g);
+
+    int flow = 0;
+    std::set<int> edges;
+
+    for (int i = 0; i < n; ++i) {
+        for (auto j: g.returnGraph()[i]) {
+            if (left_part[i] == left_part[j.vertex]) continue;
+            flow += abs(j.flow);
+            edges.insert(abs(j.number));
         }
     }
 
-    for (auto i: answer) {
-        cout << i << "\n";
+    cout << edges.size() << " " << flow/2 << "\n";
+    for (auto const& i: edges) {
+        cout << i << " ";
     }
+
     return 0;
-} 
+}
+
+
+
+
+
+
+
+
+
