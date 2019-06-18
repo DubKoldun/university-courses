@@ -80,6 +80,11 @@ public:
     std::string prefix_form() override {
         return "(" + _left->prefix_form() + _type + _right->prefix_form() + ")";
     }
+
+    ~binaryOperation() {
+        delete _left;
+        delete _right;
+    }
 };
 
 class variable : public expression {
@@ -172,6 +177,10 @@ public:
 
     std::string prefix_form() override {
         return  _expr->prefix_form();
+    }
+
+    ~negation() {
+        delete _expr;
     }
 };
 
