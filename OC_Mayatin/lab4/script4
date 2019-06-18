@@ -1,0 +1,18 @@
+#!/bin/bash
+
+
+#sudo cpulimit -p 6517 -l 20
+
+echo "0"
+nice ./script4processiong&pid1=$!
+nice ./script4processiong&pid2=$!
+
+renice +10 $pid1
+echo "1"
+cpulimit -p $pid1 -l 20 &
+echo "2"
+cpulimit -p $pid2 -l 20 &
+echo "3"
+
+#kill $pid1
+#kill $pid2
