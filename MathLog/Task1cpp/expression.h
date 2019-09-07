@@ -78,7 +78,7 @@ public:
     }
 
     std::string prefix_form() override {
-        return "(" + _left->prefix_form() + _type + _right->prefix_form() + ")";
+        return "(" + _type + ',' +  _left->prefix_form() + ',' + _right->prefix_form() + ")";
     }
 
     ~binaryOperation() {
@@ -176,7 +176,7 @@ public:
     }
 
     std::string prefix_form() override {
-        return "!" + _expr->prefix_form();
+        return  "(!" + _expr->prefix_form() + ")";
     }
 
     ~negation() {
