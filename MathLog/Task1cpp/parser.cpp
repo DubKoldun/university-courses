@@ -4,13 +4,11 @@
 using std::string;
 using std::cout;
 using std::cin;
-//need debug
+
 expression * parse(string  expr);
 
 expression * var (string  expr) {
-    expression * result = new variable(expr);
-    // cout << result->prefix_form() << "\n";
-    return result;
+    return new variable(expr);
 }
 
 expression * otricala (string  expr) {
@@ -18,20 +16,15 @@ expression * otricala (string  expr) {
     while (currentPosition != size) {
         switch (expr[currentPosition]) {
             case '!': {
-                expression * result = new negation(otricala(expr.substr(currentPosition+1,size)));
-                // cout << result->prefix_form() << "\n";
-                return result;
+                return new negation(otricala(expr.substr(currentPosition+1,size)));
             }
             case '(': {
-                expression * result = parse(expr.substr(1,size-2));
-                // cout << result->prefix_form() << "\n";
-                return result;
+                return parse(expr.substr(1,size-2));
             }
         }
         ++currentPosition;
     }
 
-    // cout << expr << "\n";
     return var(expr);
 }
 
@@ -50,15 +43,11 @@ expression * conjunct (string  expr) {
                 continue;
             }
             case '&': {
-                expression * result = new conjunction(conjunct(expr.substr(0,currentPosition)),otricala(expr.substr(currentPosition+1,size)));
-                // cout << result->prefix_form() << "\n";
-                return result;
+                return new conjunction(conjunct(expr.substr(0,currentPosition)),otricala(expr.substr(currentPosition+1,size)));
             }
         }
             --currentPosition;
     }
-
-    // cout << expr << "\n";
     return otricala(expr);
 }
 
@@ -78,19 +67,15 @@ expression * disjunct(string  expr) {
                 continue;
             }
             case '|': {
-                expression * result = new disjunction(disjunct(expr.substr(0,currentPosition)),conjunct(expr.substr(currentPosition+1,size)));
-                // cout << result->prefix_form() << "\n";
-                return result;
+                return new disjunction(disjunct(expr.substr(0,currentPosition)),conjunct(expr.substr(currentPosition+1,size)));
             }
         }
         --currentPosition;
     }
-
-    // cout << expr << "\n";
     return conjunct(expr);
 }
 
-expression* parse(string  expr) {
+expression * parse(string  expr) {
     size_t currentPosition = 0, size = expr.size(), count = 0;
     while (currentPosition != size) {
         switch (expr[currentPosition]) {
@@ -104,14 +89,11 @@ expression* parse(string  expr) {
                 continue;
             }
             case '-': {
-                expression * result = new implication(disjunct(expr.substr(0,currentPosition)),parse(expr.substr(currentPosition+2,size)));
-                // cout << result->prefix_form() << "\n";
-                return result;
+                return new implication(disjunct(expr.substr(0,currentPosition)),parse(expr.substr(currentPosition+2,size)));
             }
         }
         ++currentPosition;
     }
-    // cout << expr << "\n";
     return disjunct(expr);
 }
 
@@ -121,4 +103,6 @@ int main() {
     cin >> expr;
     expression* a = parse(expr);
     cout << a->prefix_form();
+    delete a;
+    return 0;
 }

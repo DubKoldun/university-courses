@@ -1,16 +1,10 @@
 #include <iostream>
 #include <memory>
+#include <algorithm>
 #include "utils/features.cpp"
 #include "utils/axiom.cpp"
 
 //need algo
-
-struct mp {
-    expression* general;
-    size_t size = INF;
-
-
-};
 
 int main() {
     readFirstLine();
@@ -18,7 +12,7 @@ int main() {
     size_t i = 0;
 
     unordered_map <expression*, size_t, StringHasher, EqualChecker> provesMap;
-    unordered_map <expression*, std::vector<mp>, StringHasher, EqualChecker> modusMap;
+    unordered_map <expression*, std::set<mp, Compare>, StringHasher, EqualChecker> modusMap;
 
     while (readLine(currentLine)) {
         ++i;
@@ -28,13 +22,15 @@ int main() {
         if (axiom) {
             currentExpression->val = {-1, axiom, "Ax. sch. "};
             provesMap.emplace(currentExpression, i);
-            if (currentExpression.getType() == "->") { //&& provesMap.find(currentExpression->getLeft()) != provesMap.end()) {
+
+            if (currentExpression->getType() == "->") { //&& provesMap.find(currentExpression->getLeft()) != provesMap.end()) {
                 expression* r = currentExpression->getRight();
-                auto * search = modusMap.find(r);
+                auto search = modusMap.find(r);
+
                 if (search == modusMap.end()) {
-                    modusMap.emplace(r, std::set<mp, Compare>({currentExpression}));
+                    modusMap.emplace(r, std::set<mp, Compare>{{currentExpression}});
                 } else {
-                    search->second.emplace({currentExpression}); // after all need to check on a left part
+                    search->second.insert({currentExpression}); // after all need to check on a left part
                 }
             }
             continue;
@@ -44,21 +40,23 @@ int main() {
         if (hypothesis) {
             currentExpression->val = {0, hypothesis, "Hypothesis "};
             provesMap.emplace(currentExpression, i);
-            if (currentExpression.getType() == "->") { //&& provesMap.find(currentExpression->getLeft()) != provesMap.end()) {
+
+            if (currentExpression->getType() == "->") { //&& provesMap.find(currentExpression->getLeft()) != provesMap.end()) {
                 expression* r = currentExpression->getRight();
                 auto search = modusMap.find(r);
+
                 if (search == modusMap.end()) {
-                    modusMap.emplace(r, std::set<mp, Compare>({currentExpression}));
+                    modusMap.emplace(r, std::set<mp, Compare>{{currentExpression}});
                 } else {
-                    search->second.emplace({currentExpression}); // after all need to check on a left part
+                    search->second.insert({currentExpression}); // after all need to check on a left part
                 }
             }
             continue;
         }
-
+        
         auto search = modusMap.find(currentExpression);
         if (search != modusMap.end()) {
-            size_t minValue = INF;
+            int minValue = INF;
             for (auto ss: search->second) {
                 auto left = ss.general->getLeft();
 
@@ -73,26 +71,29 @@ int main() {
                             break;
                         }
                         default: {
-                            minValue = std::min(modusMap.find(left).begin()->second.size + 1, minValue);
+                            auto search2 = modusMap.find(left);
+                            minValue = std::min(search2->second.begin()->size + 1, minValue);
                         }
                     }
                     ss.size = minValue;
                 }
             }
 
-            auto var = search.begin()->second;
+            auto var = search->second.begin();
 
-            if(var.size != INF) {
-                search->first.val = {provesMap.find(var.general).second, provesMap.find(var.general->getLeft()).second, "M. P. "};
+            if(var->size != INF) {
+                search->first->val = {provesMap.find(var->general)->second, provesMap.find(var->general->getLeft())->second, "M. P. "};
             }
-        } 
+            break;
+        }
+        delete currentExpression;
 
         cout << "Proof is incorrect\n";
         return 0;
 
     }
 
-    for (auto i : provesMap) cout << "Debug: " << i.first->val.a << " " << i.first->val.b << " " << i.second;
+    // for (auto i : provesMap) cout << "Debug: " << i.first->val.a << " " << i.first->val.b << " " << i.second;
 
     return 0;
 }

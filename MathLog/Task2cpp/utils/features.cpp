@@ -1,12 +1,10 @@
 //
 // Created by vitaliy on 20.04.19.
 //
-
 #include <iostream>
 #include <memory>
-#include <set>
-#include <limits>
 #include "hypothesises.cpp"
+#include "modusponens.cpp"
 #include "parser.cpp"
 
 using std::string;
@@ -15,13 +13,6 @@ using std::cerr;
 using std::cin;
 using std::set;
 
-const size_t INF = std::numeric_limits<size_t>::max;
-
-struct Compare {
-    bool operator()(mp a, mp b) const {
-          return a.size() < b.size();
-    }
-};
 
 string statement;
 
