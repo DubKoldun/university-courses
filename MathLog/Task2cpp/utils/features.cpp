@@ -4,6 +4,8 @@
 
 #include <iostream>
 #include <memory>
+#include <set>
+#include <limits>
 #include "hypothesises.cpp"
 #include "parser.cpp"
 
@@ -11,10 +13,19 @@ using std::string;
 using std::cout;
 using std::cerr;
 using std::cin;
+using std::set;
+
+const size_t INF = std::numeric_limits<size_t>::max;
+
+struct Compare {
+    bool operator()(mp a, mp b) const {
+          return a.size() < b.size();
+    }
+};
 
 string statement;
 
-void destroySpaces(std::string & some) {
+void destroySpaces(string & some) {
     for (size_t i = 0; i < some.size()-1; ++i) {
         if (some[i] == ' ') {
             some.erase(i--, 1);
