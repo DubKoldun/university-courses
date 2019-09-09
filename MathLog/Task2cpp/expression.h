@@ -21,7 +21,7 @@ public:
     virtual ~expression() = default;
 
     struct meaning {
-        int a, b = 0;
+        int a, b = -2;
         std::string value;
 
         std::string name() {

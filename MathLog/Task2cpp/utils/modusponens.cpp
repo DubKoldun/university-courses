@@ -5,7 +5,7 @@
 
 using std::set;
 
-const size_t INF = std::numeric_limits<int>::max();
+const int INF = std::numeric_limits<int>::max();
 
 struct mp {
     expression* general;

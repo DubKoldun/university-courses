@@ -24,8 +24,8 @@ void destroySpaces(string & some) {
     }
 }
 
-bool readLine(string& expression) {
-    if (getline(cin,expression)) {
+bool readLine(string & expression) {
+    if (getline(cin, expression)) {
         destroySpaces(expression);
         return true;
     } else {
