@@ -82,6 +82,7 @@ int main()
         if (!((text[i] >= 'a' && text[i] <= 'z') || (text[i] >= 'A' && text[i] <= 'Z')))
         {
             text.erase(i, 1);
+            --i;
         }
         if (text[i] >= 'a' && text[i] <= 'z')
         {
@@ -103,13 +104,13 @@ int main()
     while (period <= MAX_PERIOD)
     {
         auto value = indexAlpha(text, ++period);
-        //cout << value << ' ' << period << std::endl; //here we should try different ways to look for the period (the closest to 0.065 ...)
+        cout << value << ' ' << period << std::endl; //here we should try different ways to look for the period (the closest to 0.065 ...)
         if (value > maxValue)
         {
             maxValue = value;
             maxPeriod = period;
         }
     }
-    cout << "We have found the period: " << maxPeriod << std::endl;
+    //cout << "We have found the period: " << maxPeriod << std::endl;
     return 0;
 }
