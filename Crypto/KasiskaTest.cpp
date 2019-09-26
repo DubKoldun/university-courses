@@ -10,6 +10,7 @@ using std::cin;
 
 const size_t MAX_PERIOD = 17;
 const size_t ALPHABET_LENGTH = 26;
+const double NASHE_CHISLO = 0.065;
 vector<vector<char>> vigenereSquare(ALPHABET_LENGTH, vector<char>(ALPHABET_LENGTH));
 
 void generateVigenereSquare()
@@ -39,26 +40,33 @@ void printVigenereSquare()
 double indexAlpha(string text, size_t period)
 {
     vector<double> currentAlpha(26);
-    size_t currentSize = 0;
-    for (size_t i = 0; i < text.size(); i += period)
+    vector<double> currentAnswers;
+    for (size_t p = 0; p < period; ++p)
     {
-        if ((text[i] >= 'a' && text[i] <= 'z') || (text[i] >= 'A' && text[i] <= 'Z'))
+        size_t currentSize = 0;
+        for (size_t i = p; i < text.size(); i += period)
         {
-            size_t shift = 'a';
-            if (text[i] >= 'A' && text[i] <= 'Z') { shift = 'A'; }
-            ++currentAlpha[text[i] - shift];
+            ++currentAlpha[text[i] - 'A'];
             ++currentSize;
         }
+
+        double ans = 0;
+
+        for (double i : currentAlpha)
+        {
+            ans += pow(i / (double) currentSize, 2);
+        }
+        //return ans;
+        currentAnswers.push_back(ans);
+        currentAlpha = vector<double>(26);
     }
-
-    double ans = 0;
-
-    for (auto i : currentAlpha)
+    double sum = 0;
+    for (double cur : currentAnswers)
     {
-        ans += pow(i / (double) currentSize, 2);
+        sum += cur;
     }
 
-    return ans;
+    return (sum / currentAnswers.size());
 }
 
 int main()
@@ -89,7 +97,7 @@ int main()
             text[i] = text[i] - 'a' + 'A';
         }
     }
-    cout << text << std::endl;
+    //cout << text << std::endl;
     //now encrypt the text
     string cipherText = "";
     for (size_t i = 0; i < text.size(); ++i)
@@ -97,20 +105,25 @@ int main()
         //                                                                                                                                                      yourtextishereqwert
         cipherText += vigenereSquare[text[i] - 'A'][key[i % key.size()]- 'A']; //key[i % key.size()] means.. u know, when u write your key under your text like keykeykeykeykeykeyke , it returns the index of the key's char, that comes under the your current text char
     }
-    cout << cipherText << std::endl;
+    //cout << cipherText << std::endl;
     size_t period = 0;
-    double maxValue = 0, maxPeriod;
+    double minDif = 1e9, truePeriod;
 
     while (period <= MAX_PERIOD)
     {
-        auto value = indexAlpha(text, ++period);
-        cout << value << ' ' << period << std::endl; //here we should try different ways to look for the period (the closest to 0.065 ...)
-        if (value > maxValue)
+        double value = indexAlpha(text, ++period);
+        //cout << value << ' ' << period << std::endl;
+        double dif = value - NASHE_CHISLO;
+        if (dif < 0)
         {
-            maxValue = value;
-            maxPeriod = period;
+            dif *= -1;
+        }
+        if (dif < minDif)
+        {
+            minDif = dif;
+            truePeriod = period;
         }
     }
-    //cout << "We have found the period: " << maxPeriod << std::endl;
+    cout << "We have found the period: " << truePeriod << " (MAGIC PZDC)" << std::endl;
     return 0;
 }
