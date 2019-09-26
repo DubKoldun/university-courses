@@ -7,6 +7,8 @@
 
 using std::shared_ptr;
 
+const int INF = std::numeric_limits<int>::max();
+
 class expression;
 
 // #define expr_t std::shared_ptr<expression>
@@ -26,7 +28,7 @@ public:
     virtual ~expression() = default;
 
     struct meaning {
-        int a, b = 0;
+        int a, b = 0, depth = INF;
         std::string value;
 
         std::string name() {
@@ -88,7 +90,7 @@ public:
     }
 
     std::string prefix_form() override {
-        return "(" + _type + ',' +  _left->prefix_form() + ',' + _right->prefix_form() + ")";
+        return "("  +  _left->prefix_form() + " " + _type + " " + _right->prefix_form() + ")";
     }
 
 };
@@ -181,7 +183,7 @@ public:
     }
 
     std::string prefix_form() override {
-        return  "(!" + _expr->prefix_form() + ")";
+        return  "!" + _expr->prefix_form();
     }
 
 };

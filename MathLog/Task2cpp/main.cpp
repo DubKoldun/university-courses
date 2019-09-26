@@ -1,18 +1,17 @@
 #include <algorithm>
 #include <iostream>
-#include <vector>
+#include <sstream>
 #include <list>
 #include "utils/features.cpp"
 #include "utils/axiom.cpp"
 
-using std::vector;
 using std::list;
 
 int main() {
     readFirstLine();
 
     string currentLine;
-    int i = 0;
+    int i = 1;
 
     expr_t lastExpression;
 
@@ -22,47 +21,49 @@ int main() {
     while (readLine(currentLine)) {
         expr_t currentExpression(parse(currentLine));
         lastExpression = currentExpression;
-        provesMap.insert({currentExpression, ++i});
 
         if (currentExpression->getType() == "->") {
-            expr_t right = currentExpression->getRight(), left = currentExpression->getLeft();
+            expr_t right = currentExpression->getRight();
             auto currentMP = modusMap.find(right);
             if (currentMP != modusMap.end()) {
-                currentMP->second.emplace_back(left, i);
+                currentMP->second.emplace_back(currentExpression, i);
             } else {
-                modusMap.emplace(right, list<std::pair<expr_t, int>>{{left, i}});
+                modusMap.emplace(right, list<std::pair<expr_t, int>>{{currentExpression, i}});
             }
         }
 
         int currentState = axiomNumber(currentExpression);
         if (currentState) {
-            currentExpression->val = {currentState, -1, "Ax. sch."};
+            currentExpression->val = {currentState, -1, 1, "Ax. sch."};
+            provesMap.insert({currentExpression, i++});
             continue;
         }
 
         currentState = checkHypothesis(currentExpression);
         if (currentState) {
-            currentExpression->val = {currentState, 0, "Hypothesis"};
+            currentExpression->val = {currentState, 0, 1, "Hypothesis"};
+            provesMap.insert({currentExpression, i++});
             continue;
         }
 
         auto buff = modusMap.find(currentExpression);
         if (buff != modusMap.end()) {
-
-            bool flag = false;
+            int min = INF;
             for (auto i: buff->second) {
-                auto left = provesMap.find(i.first);
+                auto full = provesMap.find(i.first);
+                auto left = provesMap.find(full->first->getLeft());
                 if (left != provesMap.end()) {
-                    currentExpression->val = {i.second, left->second, "M.P."};
-                    flag = true;
-                    break;
+                    min = std::min(min, left->first->val.depth + full->first->val.depth + 1);
+                    currentExpression->val = {i.second, left->second, min, "M.P."};
                 }
             }
 
-            if (!flag) {
+            if (min == INF) {
                 cout << "Proof is incorrect";
                 return 0;
             }
+            provesMap.insert({currentExpression, i++});
+
             continue;
         }
 
@@ -70,24 +71,63 @@ int main() {
         return 0;
     }
 
-    expr_t exprStatement = parse(statement);
-
-    if (!equals(lastExpression, exprStatement)) {
+    if (!equals(lastExpression, parse(statement))) {
         cout << "Proof is incorrect";
         return 0;
     }
 
     vector<std::pair<expr_t,int>> answer;
-    for (auto i: provesMap) {
-        answer.emplace_back(std::pair<expr_t,int>({i.first,i.second}));
-    }
+
+    recovery(reverseMap(provesMap), provesMap, lastExpression, answer);
+
     sort(answer.begin(), answer.end(), ComparePairs());
 
+    std::vector<std::pair<expr_t, int>>::iterator it;
+    it = std::unique (answer.begin(), answer.end(), [](std::pair<expr_t, int>  a, std::pair<expr_t, int>  b) { return equals(a.first, b.first);});
+    answer.resize( std::distance(answer.begin(),it) );
+
+    string s = hypotForAns.substr(0, hypotForAns.size()-2);
+    if (!hypothesises.empty()) s += " ";
+    cout << s << "|- " << parse(statement)->prefix_form() << "\n";
+
+
+    unordered_map <int, int> connections;
+    int currentIndex = 1, oldIndex = 0;
     for (auto i: answer) {
-        cout << i.second;
+        oldIndex = i.second;
+        expr_t expr = i.first;
+        switch (expr->val.b) {
+            case (-1): {
+                connections.emplace(oldIndex, currentIndex);
+                cout << "[" + std::to_string(currentIndex) + ". " + expr->val.value + " " + std::to_string(expr->val.a) + "] ";
+                cout << expr->prefix_form() << "\n";
+                ++currentIndex;
+                break;
+            }
+            case (0): {
+                connections.emplace(oldIndex, currentIndex);
+                cout << "[" + std::to_string(currentIndex) + ". " + expr->val.value + " " + std::to_string(expr->val.a) + "] ";
+                cout << expr->prefix_form() << "\n";
+                ++currentIndex;
+                break;
+            }
+            default: {
+                int a = i.first->val.a, b = i.first->val.b;
+                // i.first->val.a = connections.find(a)->second;
+                // i.first->val.b = connections.find(b)->second;
+                cout << "[" << currentIndex << ". " << expr->val.value << " " << (connections.find(a)->second) << ", " << (connections.find(b)->second) << "] ";
+                cout << expr->prefix_form() << "\n";
+                connections.emplace(oldIndex, currentIndex);
+                ++currentIndex;
+                break;
+            }
+
+        }
     }
 
-
+    // for (auto i: answer) {
+    //     cout << i.first->val.depth;
+    // }
 
     return 0;
 }

@@ -10,7 +10,7 @@ out/main.o: main.cpp
 	$(CXX) $^ $(CXXFLAGS) -o out/main.o
 
 pack:
-	zip hw0.zip -r Makefile src
+	zip hw0.zip -r Makefile utils expression.h main.cpp
 
 out:
 	mkdir -p out
