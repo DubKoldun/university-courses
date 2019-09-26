@@ -10,7 +10,7 @@ using std::cin;
 
 const size_t MAX_PERIOD = 17;
 const size_t ALPHABET_LENGTH = 26;
-const double NASHE_CHISLO = 0.065;
+const double GOOD_INDEX = 0.065;
 vector<vector<char>> vigenereSquare(ALPHABET_LENGTH, vector<char>(ALPHABET_LENGTH));
 
 void generateVigenereSquare()
@@ -113,7 +113,7 @@ int main()
     {
         double value = indexAlpha(text, ++period);
         //cout << value << ' ' << period << std::endl;
-        double dif = value - NASHE_CHISLO;
+        double dif = value - GOOD_INDEX;
         if (dif < 0)
         {
             dif *= -1;
@@ -124,6 +124,6 @@ int main()
             truePeriod = period;
         }
     }
-    cout << "We have found the period: " << truePeriod << " (MAGIC PZDC)" << std::endl;
+    cout << "We have found the period: " << truePeriod << " (MAGIC)" << std::endl;
     return 0;
 }
