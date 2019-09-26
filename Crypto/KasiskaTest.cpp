@@ -10,7 +10,7 @@ using std::cin;
 
 const size_t MAX_PERIOD = 17;
 const size_t ALPHABET_LENGTH = 26;
-const double NASHE_CHISLO = 0.065;
+const double GOOD_INDEX = 0.065;
 vector<vector<char>> vigenereSquare(ALPHABET_LENGTH, vector<char>(ALPHABET_LENGTH));
 
 void generateVigenereSquare()
@@ -37,13 +37,13 @@ void printVigenereSquare()
 }
 
 
-double indexAlpha(string text, size_t period)
+double indexAlpha(string& text, size_t period)
 {
-    vector<double> currentAlpha(26);
     vector<double> currentAnswers;
     for (size_t p = 0; p < period; ++p)
     {
         size_t currentSize = 0;
+        vector<double> currentAlpha(26);
         for (size_t i = p; i < text.size(); i += period)
         {
             ++currentAlpha[text[i] - 'A'];
@@ -52,18 +52,19 @@ double indexAlpha(string text, size_t period)
 
         double ans = 0;
 
-        for (double i : currentAlpha)
+        for (double val : currentAlpha)
         {
-            ans += pow(i / (double) currentSize, 2);
+            ans += pow(val, 2);
         }
+        ans /= pow(currentSize, 2);
         //return ans;
         currentAnswers.push_back(ans);
-        currentAlpha = vector<double>(26);
     }
     double sum = 0;
     for (double cur : currentAnswers)
     {
         sum += cur;
+        //cout << cur << ' ';
     }
 
     return (sum / currentAnswers.size());
@@ -73,11 +74,9 @@ int main()
 {
     freopen("input.in", "r", stdin);
     generateVigenereSquare();
-    //printVigenereSquare();
-    //cout << "Enter a key: "; we use file input so it is TODO to make interface more nice (to be possible to enter the key in console)
     string key;
     cin >> key;
-
+    //cout << key.size() << ' ' << "key  size\n";
     string text = "";
     string token;
     while (cin >> token)
@@ -107,23 +106,20 @@ int main()
     }
     //cout << cipherText << std::endl;
     size_t period = 0;
-    double minDif = 1e9, truePeriod;
+    double minEps = 1, keyLength = -1;
 
     while (period <= MAX_PERIOD)
     {
-        double value = indexAlpha(text, ++period);
+        double value = indexAlpha(cipherText, ++period);
         //cout << value << ' ' << period << std::endl;
-        double dif = value - NASHE_CHISLO;
-        if (dif < 0)
+        double eps = std::abs(value - GOOD_INDEX);
+
+        if (eps < minEps)
         {
-            dif *= -1;
-        }
-        if (dif < minDif)
-        {
-            minDif = dif;
-            truePeriod = period;
+            minEps = eps;
+            keyLength = period;
         }
     }
-    cout << "We have found the period: " << truePeriod << " (MAGIC PZDC)" << std::endl;
+    cout << "We have found the period: " << keyLength << std::endl;
     return 0;
 }
