@@ -5,18 +5,19 @@ using std::string;
 using std::cout;
 using std::cin;
 
-expression * parse(string  expr);
 
-expression * var (string  expr) {
-    return new variable(expr);
+expr_t parse(string expr);
+
+expr_t var (string expr) {
+    return std::make_shared<variable>(expr);
 }
 
-expression * otricala (string  expr) {
+expr_t otricala (string  expr) {
     size_t currentPosition = 0, size = expr.size();
     while (currentPosition != size) {
         switch (expr[currentPosition]) {
             case '!': {
-                return new negation(otricala(expr.substr(currentPosition+1,size)));
+                return std::make_shared<negation>(otricala(expr.substr(currentPosition+1,size)));
             }
             case '(': {
                 return parse(expr.substr(1,size-2));
@@ -28,7 +29,7 @@ expression * otricala (string  expr) {
     return var(expr);
 }
 
-expression * conjunct (string  expr) {
+expr_t conjunct (string  expr) {
     size_t size = expr.size(), count = 0;
     int currentPosition = size-1;
     while (currentPosition != -1) {
@@ -43,7 +44,7 @@ expression * conjunct (string  expr) {
                 continue;
             }
             case '&': {
-                return new conjunction(conjunct(expr.substr(0,currentPosition)),otricala(expr.substr(currentPosition+1,size)));
+                return std::make_shared<conjunction>(conjunct(expr.substr(0,currentPosition)),otricala(expr.substr(currentPosition+1,size)));
             }
         }
             --currentPosition;
@@ -52,7 +53,7 @@ expression * conjunct (string  expr) {
 }
 
 
-expression * disjunct(string  expr) {
+expr_t disjunct(string  expr) {
     size_t size = expr.size(), count = 0;
     int currentPosition = size-1;
     while (currentPosition != -1) {
@@ -67,7 +68,7 @@ expression * disjunct(string  expr) {
                 continue;
             }
             case '|': {
-                return new disjunction(disjunct(expr.substr(0,currentPosition)),conjunct(expr.substr(currentPosition+1,size)));
+                return std::make_shared<disjunction>(disjunct(expr.substr(0,currentPosition)),conjunct(expr.substr(currentPosition+1,size)));
             }
         }
         --currentPosition;
@@ -75,7 +76,7 @@ expression * disjunct(string  expr) {
     return conjunct(expr);
 }
 
-expression * parse(string  expr) {
+expr_t parse(string expr) {
     size_t currentPosition = 0, size = expr.size(), count = 0;
     while (currentPosition != size) {
         switch (expr[currentPosition]) {
@@ -89,7 +90,7 @@ expression * parse(string  expr) {
                 continue;
             }
             case '-': {
-                return new implication(disjunct(expr.substr(0,currentPosition)),parse(expr.substr(currentPosition+2,size)));
+                return std::make_shared<implication>(disjunct(expr.substr(0,currentPosition)),parse(expr.substr(currentPosition+2,size)));
             }
         }
         ++currentPosition;

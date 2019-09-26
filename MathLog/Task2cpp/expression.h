@@ -1,27 +1,32 @@
-#include <utility>
-
 #ifndef CPP_SOLUTION_EXPRESSION_H
 #define CPP_SOLUTION_EXPRESSION_H
 
+#include <memory>
 #include <string>
 #include <iostream>
 
+using std::shared_ptr;
+
+class expression;
+
+// #define expr_t std::shared_ptr<expression>
+using expr_t = std::shared_ptr<expression>;
+
 class expression {
 public:
-    virtual std::string prefix_form() = 0;
 
-    virtual bool operator==(expression *some) = 0;
+    virtual std::string prefix_form() = 0;
 
     virtual std::string getType() = 0;
 
-    virtual expression* getLeft() = 0;
+    virtual expr_t getLeft() = 0;
 
-    virtual expression* getRight() = 0;
+    virtual expr_t getRight() = 0;
 
     virtual ~expression() = default;
 
     struct meaning {
-        int a, b = -2;
+        int a, b = 0;
         std::string value;
 
         std::string name() {
@@ -33,22 +38,39 @@ public:
                     return value + std::to_string(a);
                 }
                 default: {
-                    return value + std::to_string(a) + ", " + std::to_string(b);
+                    return value + std::to_string(a) + std::to_string(b);
                 }
             }
         }
     };
 
+    friend bool equals(expr_t expr1, expr_t expr2);
+
     meaning val;
+private:
+
+    virtual bool equalsSharedPointer(expr_t expr) = 0;
+
 };
 
 class binaryOperation : public expression {
 private:
-    expression *_left;
-    expression *_right;
+
+    expr_t _left;
+    expr_t _right;
     std::string _type;
+
+    bool equalsSharedPointer(expr_t some) override {
+        if (getType() != some->getType()) {
+            return false;
+        }
+        std::shared_ptr<binaryOperation> some1 = std::dynamic_pointer_cast<binaryOperation>(some);
+        return equals(_left,some1->getLeft())  && equals(_right,some1->getRight());
+    }
+
 public:
-    binaryOperation(expression *left, expression *right, std::string type) :
+
+    binaryOperation(expr_t left, expr_t right, std::string type) :
             _left(left),
             _right(right), _type(std::move(type)) {
     }
@@ -57,40 +79,30 @@ public:
         return _type;
     }
 
-    expression *getLeft() override {
+    expr_t getLeft() override {
         return _left;
     }
 
-    expression *getRight() override {
+    expr_t getRight() override {
         return _right;
     }
 
-    bool operator==(expression *some) override {
-        if (getType() != some->getType()){
-//            std::cout << "not" << getType() << some->getType() << std::endl;
-            return false;
-        }
-        else {
-//            std::cout << "yes" << getType() << some->getType() << std::endl;
-            auto *some1 = dynamic_cast<binaryOperation *>(some);
-            return (*some1->getLeft() == getLeft()) && (*some1->getRight() == getRight());
-        }
-    }
-
     std::string prefix_form() override {
-        return "(" + _left->prefix_form() + _type + _right->prefix_form() + ")";
+        return "(" + _type + ',' +  _left->prefix_form() + ',' + _right->prefix_form() + ")";
     }
 
-    ~binaryOperation() {
-        delete _left;
-        delete _right;
-    }
 };
 
 class variable : public expression {
 private:
+
     std::string _name;
     std::string _type = "variable";
+
+    bool equalsSharedPointer (expr_t some) override {
+        return (_type == some->getType()) && (_name == some->prefix_form());
+    }
+
 public:
     explicit variable(std::string &name) : _name(name) {
     }
@@ -99,18 +111,12 @@ public:
         return _type;
     }
 
-    expression *getLeft() override {
+    expr_t getLeft() override {
         return nullptr;
     }
 
-    expression *getRight() override {
+    expr_t getRight() override {
         return nullptr;
-    }
-
-    bool operator==(expression *some) override {
-//        std::cout << "variable operator: ";
-//        std::cout << prefix_form() << " " << some->prefix_form() << "\n";
-        return _type == some->getType() && prefix_form() == some->prefix_form();
     }
 
     std::string prefix_form() override {
@@ -121,30 +127,40 @@ public:
 
 class implication : public binaryOperation {
 public:
-    implication(expression *left, expression *right) : binaryOperation(left, right, "->") {
+    implication(expr_t left, expr_t right) : binaryOperation(left, right, "->") {
     }
 
 };
 
 class disjunction : public binaryOperation {
 public:
-    disjunction(expression *left, expression *right) : binaryOperation(left, right, "|") {
+    disjunction(expr_t left, expr_t right) : binaryOperation(left, right, "|") {
     }
 };
 
 class conjunction : public binaryOperation {
 public:
-    conjunction(expression *left, expression *right) : binaryOperation(left, right, "&") {
+    conjunction(expr_t left, expr_t right) : binaryOperation(left, right, "&") {
     }
 
 };
 
 class negation : public expression {
 private:
-    expression *_expr;
+
+    expr_t _expr;
     std::string _type = "!";
+
+    bool equalsSharedPointer(expr_t some) override {
+        if (getType() != some->getType()) {
+            return false;
+        }
+        std::shared_ptr<negation> some1 = std::dynamic_pointer_cast<negation>(some);
+        return equals(_expr, some1->getExpr());
+    }
+
 public:
-    explicit negation(expression *expr) :
+    explicit negation(expr_t expr) :
             _expr(expr) {
     }
 
@@ -152,36 +168,26 @@ public:
         return _type;
     }
 
-    expression * getExpr() {
+    expr_t getExpr() {
         return _expr;
     }
 
-    expression *getLeft() override {
+    expr_t getLeft() override {
         return _expr;
     }
 
-    expression *getRight() override {
+    expr_t getRight() override {
         return _expr;
-    }
-
-    bool operator==(expression* some) override {
-//        std::cout << "neg operator ";
-//        std::cout << _expr->prefix_form() << " " << some->prefix_form() << "\n";
-//        std::cout << _expr->getType()     << " " << some->getType() << "\n";
-        if (getType() != some->getType()) return false;
-        else {
-            auto *some1 = dynamic_cast<negation *>(some);
-            return *some1->getExpr() == _expr;
-        }
     }
 
     std::string prefix_form() override {
-        return "!" + _expr->prefix_form();
+        return  "(!" + _expr->prefix_form() + ")";
     }
 
-    ~negation() {
-        delete _expr;
-    }
 };
+
+bool equals(expr_t expr1, expr_t expr2) {
+    return expr1->equalsSharedPointer(expr2);
+}
 
 #endif //CPP_SOLUTION_EXPRESSION_H
