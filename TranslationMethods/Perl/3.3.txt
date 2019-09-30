@@ -1,0 +1,11 @@
+<a href="http://neerc.ifmo.ru/school">
+<a href="http://neerc.ifmo.ru">
+<a href="ctddev.ifmo.ru:1328" >
+<a href="ftp://ftp.is.co.za/rfc/rfc1808.txt">
+<a href="http://www.ietf.org/rfc/rfc2396.txt">
+<a href="ldap://[2001:db8::7]/c=GB?objectClass?one">
+<a href="mailto:John.Doe@example.com">
+<a href="news:comp.infosystems.www.servers.unix">
+<a href="tel:+1-816-555-1212">
+<a href="telnet://192.0.2.16:80/">
+<a href="urn:oasis:names:specification:docbook:dtd:xml:4.1.2">
