@@ -11,7 +11,6 @@ const int INF = std::numeric_limits<int>::max();
 
 class expression;
 
-// #define expr_t std::shared_ptr<expression>
 using expr_t = std::shared_ptr<expression>;
 
 class expression {
@@ -114,10 +113,12 @@ public:
     }
 
     expr_t getLeft() override {
+        std::cout << "lol";
         return nullptr;
     }
 
     expr_t getRight() override {
+        std::cout << "lol";
         return nullptr;
     }
 

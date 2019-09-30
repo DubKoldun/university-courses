@@ -2,6 +2,7 @@
 // Created by vitaliy on 20.04.19.
 //
 #include <iostream>
+// #include <fstream>
 #include <limits>
 #include <vector>
 #include "hypothesises.cpp"
@@ -13,6 +14,9 @@ using std::cout;
 using std::cerr;
 using std::cin;
 
+// std::ifstream in("tests/proof1.txt");
+// std::ofstream out("tests/out1.txr");
+//
 
 string statement, hypotForAns = "";
 
@@ -26,16 +30,18 @@ int checkHypothesis(expr_t expr) {
 }
 
 void destroySpaces(string & some) {
-    for (size_t i = 0; i < some.size()-1; ++i) {
-        if (some[i] == ' ') {
+    for (size_t i = 0; i < some.size(); ++i) {
+        if (some[i] == ' ' || some[i] == '\n' || some[i] == '\t') {
             some.erase(i--, 1);
         }
     }
 }
 
 bool readLine(string & expression) {
-    if (getline(cin, expression)) {
+    if (getline(cin, expression)) {          //////////////////////
+        // for (auto e: expression) cout << e << "\n";
         destroySpaces(expression);
+        // for (auto e: expression) cout << e << "\n";
         return true;
     } else {
         return false;
@@ -67,58 +73,3 @@ void readFirstLine() {
     }
     parseStatement(i, firstLine);
 }
-
-
-
-struct ComparePairs {
-    bool operator()(std::pair<expr_t, int> const& pair1, std::pair<expr_t, int> const& pair2) const {
-        return pair1.second < pair2.second;
-    }
-};
-
-unordered_map <int, expr_t> reverseMap(unordered_map <expr_t, int, StringHasher, EqualChecker> const& provesMap) {
-    unordered_map <int, expr_t> ans;
-    for (auto i: provesMap) {
-        ans.emplace(i.second, i.first);
-    }
-    return ans;
-}
-
-void recovery(unordered_map <int, expr_t> const& reverseProvesMap, unordered_map <expr_t, int, StringHasher, EqualChecker> const& provesMap, expr_t expr, vector<std::pair<expr_t, int>> & ans) {
-    auto current = provesMap.find(expr);
-    switch (expr->val.b) {
-        case (-1) : {
-            // cout << -1;
-            ans.emplace_back(std::pair<expr_t, int>({expr, current->second}));
-            break;
-        }
-        case (0) : {
-            // cout << 0;
-            ans.emplace_back(std::pair<expr_t, int>({expr, current->second}));
-            break;
-        }
-        default: {
-            // cout << 1;
-            ans.emplace_back(std::pair<expr_t, int>({expr, current->second}));
-            int a = expr->val.a, b = expr->val.b;
-            auto buff1 = reverseProvesMap.find(a), buff2 = reverseProvesMap.find(b);
-            recovery(reverseProvesMap, provesMap, buff1->second, ans);
-            recovery(reverseProvesMap, provesMap, buff2->second, ans);
-
-            // cout << 1
-            // ans.emplace_back(std::pair<expr_t, int>({buff1->second, a}));
-            // ans.emplace_back(std::pair<expr_t, int>({buff2->second, b}));
-        }
-    }
-}
-
-// struct mp {
-//     int number, size;
-//     expr_t left;
-// };
-//
-// struct CompareMP {
-//     bool operator()(mp first, mp second) {
-//         return first.size < second.size;
-//     }
-// };
