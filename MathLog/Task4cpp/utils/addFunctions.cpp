@@ -1,5 +1,4 @@
-#include "../parser/parser.h"
-#include <vector>
+
 
 string destroySpaces2(string const& some1) {
     string some = some1;
@@ -32,7 +31,6 @@ expr_t makeAxiom9(expr_t a, expr_t b) {
 // (3) (α → ((α → α) → α)) → (α → α) M.P. 1,2
 // (4) (α → ((α → α) → α)) Сх. акс. 1
 // (5) α → α M.P. 4,3
-
 
 std::pair<std::vector<expr_t>, int> alphaImpl(expr_t expression, int currentIndex) {
     string e = destroySpaces2(expression->prefix_form());

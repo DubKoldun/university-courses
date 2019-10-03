@@ -4,12 +4,13 @@
 #include <list>
 #include "parser/parser.h"
 #include "hypothesisesAndAxiom/axiom.h"
-#include "utils/addFunctions.cpp"
+#include "utils/addFunctions.h"
 #include "utils/features.cpp"
+#include "deduction/deductor.cpp"
 
 using std::list;
 
 int main() {
-        
+
     return 0;
 }

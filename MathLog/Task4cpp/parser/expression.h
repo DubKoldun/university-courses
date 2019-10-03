@@ -27,7 +27,7 @@ public:
     virtual ~expression() = default;
 
     struct meaning {
-        int a, b = 0, depth = INF;
+        int a, b = 0;
         std::string value;
 
         std::string name() {

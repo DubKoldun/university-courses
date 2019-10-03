@@ -4,7 +4,7 @@
 // скипнешь ли ты их случайно или нет, что с этим
 // можно сделать + ты у унара вызываешь парс, если встретил скобку.
 // также у плюса и умножить - наименьший
-// приоритет справа.
+// приоритет справа .
 
 
 expr_t var (string expr) {
@@ -26,7 +26,7 @@ expr_t otricala (string  expr) {
 
 expr_t ter (string expr) {
     size_t size = expr.size();
-    size_t currentPosition = expr.size()-1,
+    size_t currentPosition = expr.size()-1, //// tut
 }
 
 expr_t funct (string expr) {
