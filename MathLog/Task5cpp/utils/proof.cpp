@@ -1,6 +1,6 @@
 #include <string>
 #include "proof.hpp"
-#include "expression.hpp"
+#include "parser/expression.hpp"
 #include "expression-utils.hpp"
 
 void proof::add(expr_t expr) {

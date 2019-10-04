@@ -59,3 +59,51 @@ std::pair<std::vector<expr_t>, int> alphaImpl(expr_t expression, int currentInde
     currentIndex += 5;
     return {ans, currentIndex};
 }
+
+
+// contrposition "(A -> B) -> (A -> !B) -> !A",
+//            "A -> B", +1
+//            "(A -> !B) -> !A", +2
+//            "!B -> (A -> !B)", +3
+//            "!B", +4
+//            "A -> !B",
+//            "!A"
+
+
+std::pair<std::vector<expr_t>, int> contrposition (expr_t first, expr_t second, int currentIndex) {
+    std::vector<expr_t> ans;
+    std::string a = first->prefix_form(), b = second->prefix_form();
+    expr_t neb = parse(destroySpaces2("!" + b));
+
+    expr_t buff = makeAxiom9(a,b);
+    buff->val = {9, -1, "Ax"};
+    ans.push_back(buff);
+
+    buff = std::make_shared<implication>(a, b);
+    buff->val = {1, -2, "Hyp"};
+    ans.push_back(buff);
+
+    buff = std::parse(destroySpaces2("(" + a + "->!" b + ")" + "->!" + a));
+    buff->val = {currentIndex + 1, currentIndex, "MP"};
+    ans.push_back(buff);
+
+    buff = makeAxiom1(a,neb);
+    buff->val = {1, -1, "Ax"};
+    ans.push_back(buff);
+
+    neb->val = {2, -2, "Hyp"};
+    ans.push_back(val);
+
+    buff = parse(destroySpaces2(a + "->!" + b));
+    buff->val = {currentIndex + 4, currentIndex +3, "MP"};
+    ans.push_back(buff);
+
+    buff = parse(destroySpaces2("!" + a));
+    buff->val = {currentIndex + 5, currentIndex +2, "MP"};
+    ans.push_back(buff);
+
+    currentIndex += 7;
+    return {ans, currentIndex};
+}
+
+std::pair<std::vector<expr_t>,int> exMiddle()

@@ -1,4 +1,9 @@
 #include "parser.h"
+#include <vector>
+#include <memory>
+
+using std::vector;
+using std::make_shared;
 
 // подумать о скобках. в терме могут быть скобки
 // скипнешь ли ты их случайно или нет, что с этим
@@ -26,7 +31,7 @@ expr_t otricala (string  expr) {
 
 expr_t ter (string expr) {
     size_t size = expr.size();
-    size_t currentPosition = expr.size()-1, //// tut
+    size_t currentPosition = expr.size()-1; //// tut
 }
 
 expr_t funct (string expr) {
@@ -55,7 +60,7 @@ expr_t pred (string expr) {
     }
 
     while (expr[currentPosition] != '=') ++currentPosition;
-    return std::make_shared<predicat>(ter(expr.substring(0,currentPosition)), ter(expr.substring(currentPosition+1, size)));
+    return std::make_shared<predicat>(ter(expr.substr(0,currentPosition)), ter(expr.substr(currentPosition+1, size)));
 }
 
 
