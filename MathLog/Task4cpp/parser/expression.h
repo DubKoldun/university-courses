@@ -35,7 +35,7 @@ public:
                 case (-1): {
                     return value + std::to_string(a);
                 }
-                case (0): {
+                case (-2): {
                     return value + std::to_string(a);
                 }
                 default: {
