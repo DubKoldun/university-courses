@@ -71,7 +71,7 @@ double indexAlpha(string text, size_t period)
 
 int main()
 {
-    freopen("input.in", "r", stdin);
+    freopen("../Tests/input.in", "r", stdin);
     generateVigenereSquare();
     //printVigenereSquare();
     //cout << "Enter a key: "; we use file input so it is TODO to make interface more nice (to be possible to enter the key in console)
