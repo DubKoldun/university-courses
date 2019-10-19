@@ -73,13 +73,13 @@ std::pair<std::vector<expr_t>, int> alphaImpl(expr_t expression, int currentInde
 std::pair<std::vector<expr_t>, int> contrposition (expr_t first, expr_t second, int currentIndex) {
     std::vector<expr_t> ans;
     std::string a = first->prefix_form(), b = second->prefix_form();
-    expr_t neb = parse(destroySpaces2("!" + b));
+    expr_t neb = parse(destroySpaces2("!" + b)), nea = parse(destroySpaces2("!" + a)), implab = parse(destroySpaces2(a+"->"+b));
 
     expr_t buff = makeAxiom9(a,b);
     buff->val = {9, -1, "Ax"};
     ans.push_back(buff);
 
-    buff = std::make_shared<implication>(a, b);
+    buff = implab;
     buff->val = {1, -2, "Hyp"};
     ans.push_back(buff);
 
@@ -98,12 +98,42 @@ std::pair<std::vector<expr_t>, int> contrposition (expr_t first, expr_t second, 
     buff->val = {currentIndex + 4, currentIndex +3, "MP"};
     ans.push_back(buff);
 
-    buff = parse(destroySpaces2("!" + a));
+    buff = nea;
     buff->val = {currentIndex + 5, currentIndex +2, "MP"};
     ans.push_back(buff);
 
     currentIndex += 7;
+
+    std::pair<std::vector<expr_t>,int> p = deduction(ans, neb, nea);
+    ans = p.first; currentIndex = p.second;
+    p = deduction(ans, implab, std::make_shared<implication>(nea, neb));
+    ans = p.first; currentIndex = p.second;
+
     return {ans, currentIndex};
 }
 
-std::pair<std::vector<expr_t>,int> exMiddle()
+// A->A|!A
+// contrposition (deduction x2)
+//
+
+std::pair<std::vector<expr_t>,int> exMiddle(expr_t expr, int currentIndex) {
+    std::vector<expr_t> ans;
+    std::string e = destroySpaces2(expr->prefix_form());
+    expr_t ne = parse(destroySpaces2("!" + e));
+
+    expr_t buff = parse(e + "->" + e + "|!" + e);
+    buff->val = {6, -1, "Ax"};
+    ans.push_back(buff);
+
+    ++currentIndex;
+
+    std::vector<expr_t> v2;
+    std::pair<std::vector<expr_t>,int> p = contrposition(expr, parse(e+"|!"+e), currentIndex);
+    v2 = p.first; currentIndex = p.second;
+    std::copy(v2.cbegin(), v2.cend(), std::back_inserter(ans));
+
+    buff = parse("!(" << e << "|!" <<  e << ")->!!"e);
+    buff->
+
+
+}
