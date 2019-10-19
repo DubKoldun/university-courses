@@ -1,3 +1,19 @@
-CT-ITMO
-В каждой папочке все разделено на семестры. 
-Очень часто могут помочь учебники\методички, но их не так много ;(
+## ITMO, CT-course
+
+- [Algorithms and Data Structures](ASD)
+  [Books](ASD/textbooks)
+    1. [Graphs](ASD/sem3/LabASD1)
+    2. [Minimum Path](ASD/sem3/LabASD2)
+    3. [Strings](ASD/sem3/LabASD3)
+    4. [Maximum Flow and Matching](ASD/sem4/LabASD1)
+    5. [Maximum Flow Minimum Cost](ASD/sem4/LabASD2)
+    6. [Mathematics](ASD/sem4/LabASD3)
+- [Cryptography](Crypto)
+    1. [Kasiska Test](Crypto/KasiskaTest)
+- [Discrete Math](Discrete\ Math)
+    [Books](Discrete\ Math/textbook)
+- [Mathematical logic](MathLog)
+- [Operating System](OS_Mayatin)
+- [Translation Methods](TranslationMethods)
+- [Android](https://github.com/DubKoldun/android_hw)
+- [Notes](https://github.com/DubKoldun/notes)
