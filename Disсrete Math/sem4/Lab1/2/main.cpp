@@ -270,6 +270,7 @@ int main() {
 
     vector<Polynom> degrees(m, Polynom(P.return_coef()));
 
+
     degrees[0] = P;
 
     for (size_t k = 1; k < m; ++k) {
