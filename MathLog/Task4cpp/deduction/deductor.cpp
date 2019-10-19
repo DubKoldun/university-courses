@@ -5,7 +5,7 @@
 #include "../utils/addFunctions.h"
 
 
-std::vector<expr_t> deduction(std::vector<expr_t> const& proves,  expr_t left, expr_t right) {
+std::pair<std::vector<expr_t>, currentIndex> deduction(std::vector<expr_t> const& proves,  expr_t left, expr_t right) {
         std::vector<expr_t> answer;
         std::vector<int> oldToNew;
         int currentIndex = 0;
@@ -96,6 +96,6 @@ std::vector<expr_t> deduction(std::vector<expr_t> const& proves,  expr_t left, e
             }
 
         }
-        return answer;
+        return {answer, currentIndex};
 
 }
