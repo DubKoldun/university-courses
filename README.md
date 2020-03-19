@@ -13,6 +13,7 @@
 - [Discrete Math](DiscreteMath)
     [Books](DiscreteMath/textbook)
 - [Mathematical logic](MathLog)
+- [Mathematical logic 2018 (Haskell)](https://github.com/DubKoldun/mathlog_labs_2018)
 - [Operating System](OS_Mayatin)
 - [Translation Methods](TranslationMethods)
 - [Android](https://github.com/DubKoldun/android_hw)
