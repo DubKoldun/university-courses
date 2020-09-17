@@ -1,7 +1,7 @@
 KTFLAGS=-include-runtime -d
 KTC=kotlinc
-ALGO=src/Kasiska.kt src/FrequencyAnalysis.kt
-SRC=src/Main.kt
+ALGO=src/Algo/Kasiska.kt #src/Algo/FrequencyAnalysis.kt
+SRC=src/Main.kt $(ALGO)
 
 
 all: jar
