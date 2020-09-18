@@ -12,5 +12,8 @@ run: jar
 jar:
 	$(KTC) $(SRC) $(KTFLAGS) run.jar 
 
+pack:
+	zip Vigenere.zip -r Makefile $(SRC)
+
 clean:
 	rm -rf *.jar
