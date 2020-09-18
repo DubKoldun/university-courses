@@ -1,6 +1,7 @@
 package Algo.Decryptor
 
 import Algo.Kasiska.Kasiska
+import java.text.DecimalFormat
 
 class Decryptor (val cipherText : String, val alphaFrequency : HashMap<Char, Double>, val period : Int = Kasiska(cipherText).getValidPeriod()) {
     private val textSize : Int
@@ -17,11 +18,24 @@ class Decryptor (val cipherText : String, val alphaFrequency : HashMap<Char, Dou
     }
 
     fun log() {
+
+        val decimalFormat = DecimalFormat("#.#####")
+
+        println("needed:")
+        print('[')
+        alphaFrequency.forEach({ key, value -> print(Pair((key - 'a'), decimalFormat.format(value))); print(',') })
+        print(']')
+        println()
         
-        print("Shifts: ")
+        println("Shifts: ")
         for (i in 0..period-1) {
-            print(getShift(calculateAlphaFrequency(i)))
-            print(" ")
+            var buff =  calculateAlphaFrequency(i)
+            print('[')
+            buff.forEach({ key, value -> print(Pair((key - 'a'), decimalFormat.format(value))); print(',') })
+            print(']')
+            println()
+            
+            println(getShift(calculateAlphaFrequency(i)))
         }
         println()
 
@@ -33,7 +47,7 @@ class Decryptor (val cipherText : String, val alphaFrequency : HashMap<Char, Dou
 
     }
 
-
+    // find current char frequencies by period and char num
     private fun calculateAlphaFrequency(index : Int) : Map<Char, Double> {
         var currentAlphaFrequency : HashMap<Char, Double> = HashMap()
         var alphaAmount : Double = 0.0 // alphaAmount = |text|
@@ -47,22 +61,25 @@ class Decryptor (val cipherText : String, val alphaFrequency : HashMap<Char, Dou
         
         // calculate alpha frequency indeed
         return currentAlphaFrequency.map { it.key to it.value/alphaAmount }.toMap()
-        // return currentAlphaFrequency
     }
 
+    // find shift between current frequency and expected frequency peaks
     private fun getShift(currentAlphaFrequency : Map<Char, Double>) : Int =
-        currentAlphaFrequency.asSequence().fold(Pair('0', Double.MIN_VALUE)) { acc, item -> if (acc.second > item.value) {Pair(acc.first, acc.second)} else {Pair(item.key, item.value)} }.first - maxFrequencyChar
+        (currentAlphaFrequency.asSequence().fold(Pair('0', Double.MIN_VALUE)) { acc, item -> if (acc.second > item.value) {Pair(acc.first, acc.second)} else {Pair(item.key, item.value)} }.first 
+         - maxFrequencyChar)
     
 
+    // calculate decrypt word, "+ 26" for negative shift
     private fun getWord() : String {
         var ans : StringBuilder = StringBuilder("")
         for (i in 0..period-1) {
             val shift : Int = getShift(calculateAlphaFrequency(i))
-            ans.append(maxFrequencyChar + shift)
+            ans.append('a' + (shift + 26) % 26 )
         }
         return ans.toString()
     }
 
+    // walk for cipher text
     fun decrypt() : String {
         var ans : StringBuilder = StringBuilder("")
 
