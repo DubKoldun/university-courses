@@ -31,18 +31,4 @@ while (<>) { #my $line =
             print;
         }
     }
-    # }
-    # if (flag == 0) {
-    #     if () {
-    #
-    #     } else {
-    #         flag = 1;
-    #         s/(\s)\g1*/$1/g;
-    #         print;
-    #     }
-    # } else {
-    #
-    # }
-    # print s/(\s)\g1*/$1/g;
-    # print;
 }

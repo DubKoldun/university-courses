@@ -1,5 +1,5 @@
 #!/usr/bin/perl
 
 while(<>) {
-    print if /^.*\\.*$/;
+    print if /\\/;
 }

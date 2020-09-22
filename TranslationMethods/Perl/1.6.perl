@@ -1,5 +1,5 @@
 #!/usr/bin/perl
 
 while(<>) {
-    print if /^.*\b[0-9]+\b.*$/;
+    print if /\b[0-9]+\b/;
 }

@@ -1,5 +1,5 @@
 #!/usr/bin/perl
 
 while (<>) {
-    print if /^.*\bcat\b.*$/;
+    print if /\bcat\b/;
 }

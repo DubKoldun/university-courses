@@ -1,5 +1,5 @@
 #!/usr/bin/perl
 
 while(<>) {
-    print if /(^[\S].*[\S]$)|(^[\S]$)|(^$)/;
+    print if /^[\S].*[\S]$|^[\S]$|^$/;
 }

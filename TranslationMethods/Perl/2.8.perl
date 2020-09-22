@@ -1,6 +1,6 @@
 #!/usr/bin/perl
 
 while (<>) {
-    s/\b(\d+)(0)\b/$1/g;
+    s/\b(\d+)0\b/$1/g;
     print;
 }

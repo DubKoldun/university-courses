@@ -1,6 +1,6 @@
 #!/usr/bin/perl
 
 while(<>) {
-    s/\b[aA]+\b/argh/;
+    s/\b[a]+\b/argh/i;
     print;
 }
