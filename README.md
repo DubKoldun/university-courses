@@ -3,7 +3,7 @@
 ## [Notes](https://github.com/DubKoldun/notes)
 
  - Notes written by: [Vitaliy Epifantsev](https://github.com/DubKoldun), [Simon Naumov](https://github.com/nothingelsematters) and [Nikolay Yarlychenko](https://github.com/kol9)
----
+
 ## [Multithreaded Programming](MultithreadedProgramming)
 
   - Semester: 5
@@ -14,7 +14,7 @@
     
     </details>
 
----
+
 ## [Type theory](TypeTheory)
 
   - Semester: 5
@@ -24,7 +24,7 @@
     
     </details>
 
----
+
 
 ## [Functional programming](FunctionalProgramming)
 
@@ -35,7 +35,7 @@
     <details><summary> Labs </summary>
     
     </details>
----
+
 ## [Translation Methods](TranslationMethods)
   
   - Semester: 5
@@ -49,7 +49,7 @@
       - [Lab on regular expressions (on perl)](TranslationMethods/Perl)
     
     </details>
----
+
 ## [Machine learning](MachineLearning)
 
   - Semester: 5
@@ -59,7 +59,7 @@
     
     </details>
 
----
+
 ## [Mathematical logic 2018 (Haskell)](MathLog2018)
 
   - Semester: 4
@@ -74,13 +74,14 @@
       - [Completness](MathLog2018/Completness)
       - [Primitive recursion functions (hometask 7)](MathLog2018/PrRecFunctions/haskell/Main.hs)
 
-    </details> <br/>
+    </details>
+    
   - Docs
       - [Notes (html)](https://github.com/DubKoldun/notes/src/math-log-questions.html) 
       - [Hometasks](Mathlog2018/../MathLog2018/PrRecFunctions/haskell/hw-theory.pdf)
       - [Lab tasks](MathLog2018/README.md)
       
----
+
 
 
 ## [Operating System](OS_Mayatin)
@@ -98,7 +99,7 @@
       - [Lab 1](OperatingSystem/lab5), [task](OperatingSystem/lab5/Лаб5.pdf)
 
     </details>
----
+
 ## [Algorithms and Data Structures](ASD) 
 
  - Semester: 1 - 4
@@ -112,7 +113,7 @@
     
     </details>
 
----
+
 ##  [Discrete Math](DiscreteMath)
   
   - Semester: 1-4
