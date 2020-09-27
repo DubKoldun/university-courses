@@ -1,0 +1,8 @@
+#!/bin/bash
+if [[ $# != 4 ]]
+then
+echo "Wrong number of arguments. Expected <infile> <outfile> <word1> <word2>"
+exit 1
+fi
+
+cat $1 | sed -E "s/$3/$4/" > $2

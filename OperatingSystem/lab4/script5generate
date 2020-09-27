@@ -1,0 +1,18 @@
+#!/bin/bash
+
+echo -n > buffer5
+
+while true
+do
+	read line
+	if [[ $line == "QUIT" ]]
+		then
+			echo "Shutdown" >> buffer5 
+			exit
+		elif [[ $line == "*" ]]
+			then 
+			 	echo "mul" >> buffer5
+			else
+				echo $line >> buffer5
+	fi
+done

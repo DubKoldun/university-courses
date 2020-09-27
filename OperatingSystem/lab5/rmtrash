@@ -1,0 +1,22 @@
+#!/bin/bash
+
+fileName=$1
+trash=~/.trash
+log=~/.trash.log
+if [[ $# -ne 1 ]] 
+then
+	exit 1
+fi
+if [[ -d $trash ]] 
+then :
+else
+        mkdir $trash
+fi
+trashFile=$(date +%s)
+ln $fileName "$trash/$trashFile"
+rm $fileName
+if [[ ! -e $log ]]
+then 
+	touch $log
+fi
+echo "$PWD/$fileName:$trashFile" >> $log
