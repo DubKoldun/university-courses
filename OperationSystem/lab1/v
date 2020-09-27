@@ -1,0 +1,36 @@
+#!/bin/bash
+function vi_go {
+vi
+}
+function nano_go {
+nano
+}
+function links_go {
+links
+}
+
+function menu {
+echo "Menu:"
+echo "1. Запустить nano"
+echo "2. Запустить vi"
+echo "3. Запустить links"
+echo "4. Выйти"
+read option
+}
+
+menu
+
+case $option in
+1)
+nano_go
+;;
+2)
+vi_go
+;;
+3)
+links_go
+;;
+4)
+exit
+;;
+esac 

@@ -1,0 +1,37 @@
+#!/bin/bash
+
+prevresult=1
+result=1
+operation='+'
+
+(tail -n 0 -f buffer5) |
+while true
+do
+	read line
+	case $line in
+		'+')
+			operation='+'
+			echo "Adding numbers"
+			;;
+
+		"mul")
+			operation='*'
+			echo "Multiplying numbers"
+			;;
+		
+		[0-9]*)
+			prevresult=$result
+			if [[ $operation == '+' ]]
+				then
+					let result=$result+$line
+				else
+					let result=$result\*$line
+			fi
+			echo "$prevresult$operation$line = $result"
+			;;
+		*)
+			echo "Breaking news! We are ..."
+			exit
+			;;	
+	esac	
+done
