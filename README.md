@@ -11,20 +11,21 @@
   - __Сontent:__ code on Java and Kotlin
 
     <details><summary> Labs </summary>
-    
-    </details>
+        
+      - [Stack with elimination](MultithreadedProgramming/StackElimination)
+      - [Michael-Scott Queue](MultithreadedProgramming/MichaelScottQueue)
 
+    </details>
 
 ## [Type theory](TypeTheory)
 
   - Semester: 5
   - Course by: Dmitriy Shtukenberg
+  - [Notes](https://github.com/DubKoldun/notes/blob/master/type-theory.pdf)
   - __Content:__ 
     <details><summary> Labs </summary>
     
     </details>
-
-
 
 ## [Functional programming](FunctionalProgramming)
 
@@ -40,14 +41,16 @@
   
   - Semester: 5
   - Course by: Andrew Stankevich
-  - [Notes](https://github.com/DubKoldun/notes/translation-mathods.pdf)
-
+  - [Course page](https://neerc.ifmo.ru/teaching/parsing/2020-2021/)
+  - [Notes](https://github.com/DubKoldun/notes/blob/master/translation-methods.pdf)
   - __Content:__
      
     <details><summary> Labs </summary>
 
-      - [Lab on regular expressions (on perl)](TranslationMethods/Perl)
-    
+      - [Regular expressions (on perl)](TranslationMethods/Perl), [task](TranslationMethods/Perl/Tasks.pdf)
+      - [Construction of top-down parsers](TranslationMethods/RecursiveParsing), [task](TranslationMethods/RecursiveParsing/02-recursive-parsing.pdf)
+      - [Automatic generation of parsers](TranslationMethods/AutomaticGeneration), [task](TranslationMethods/AutomaticGeneration/03-bison-antlr.pdf)
+
     </details>
 
 ## [Machine learning](MachineLearning)
@@ -59,8 +62,7 @@
     
     </details>
 
-
-## [Mathematical logic 2018 (Haskell)](MathLog2018)
+## [Mathematical logic](MathLog2018)
 
   - Semester: 4
   - Course by: Dmitriy Shtukenberg
@@ -75,14 +77,11 @@
       - [Primitive recursion functions (hometask 7)](MathLog2018/PrRecFunctions/haskell/Main.hs)
 
     </details>
-    
+
   - Docs
-      - [Notes (html)](https://github.com/DubKoldun/notes/src/math-log-questions.html) 
-      - [Hometasks](Mathlog2018/../MathLog2018/PrRecFunctions/haskell/hw-theory.pdf)
+      - [Notes (html)](https://github.com/DubKoldun/notes/blob/master/src/math-log-questions.html) 
+      - [Hometasks](MathLog2018/PrRecFunctions/haskell/hw-theory.pdf)
       - [Lab tasks](MathLog2018/README.md)
-      
-
-
 
 ## [Operating System](OS_Mayatin)
 
@@ -94,9 +93,9 @@
 
       - [Lab 1](OperatingSystem/lab1), [task](OperatingSystem/lab1/Лаб1.pdf)
       - [Lab 2](OperatingSystem/lab2), [task](OperatingSystem/lab2/Лаб2.pdf)
-      - [Lab 1](OperatingSystem/lab3), [task](OperatingSystem/lab3/Лаб3.pdf)
-      - [Lab 1](OperatingSystem/lab4), [task](OperatingSystem/lab4/Лаб4.pdf)
-      - [Lab 1](OperatingSystem/lab5), [task](OperatingSystem/lab5/Лаб5.pdf)
+      - [Lab 3](OperatingSystem/lab3), [task](OperatingSystem/lab3/Лаб3.pdf)
+      - [Lab 4](OperatingSystem/lab4), [task](OperatingSystem/lab4/Лаб4.pdf)
+      - [Lab 5](OperatingSystem/lab5), [task](OperatingSystem/lab5/Лаб5.pdf)
 
     </details>
 
@@ -113,12 +112,11 @@
     
     </details>
 
-
 ##  [Discrete Math](DiscreteMath)
   
   - Semester: 1-4
   - Course by: Andrew Stankevich, Artem Vasiliev
-  - [Books](DiscreteMath/textbook)
+  - [Books](DisсreteMath/textbook)
   - __Content:__ 
 
     <details><summary>Course structure</summary>
