@@ -21,7 +21,7 @@
 
   - Semester: 5
   - Course by: Dmitriy Shtukenberg
-  - [Notes](https://github.com/DubKoldun/notes/blob/master/type-theory.pdf)
+  - [Notes (shd)](https://github.com/shd/tt2018-conspect/blob/master/conspect.pdf)
   - __Content:__ 
     <details><summary> Labs </summary>
     
@@ -42,7 +42,7 @@
   - Semester: 5
   - Course by: Andrew Stankevich
   - [Course page](https://neerc.ifmo.ru/teaching/parsing/2020-2021/)
-  - [Notes](https://github.com/DubKoldun/notes/blob/master/translation-methods.pdf)
+  - [Notes (shd)](https://github.com/DubKoldun/notes/blob/master/translation-methods.pdf)
   - __Content:__
      
     <details><summary> Labs </summary>
@@ -79,7 +79,8 @@
     </details>
 
   - Docs
-      - [Notes (html)](https://github.com/DubKoldun/notes/blob/master/src/math-log-questions.html) 
+      - [Notes (shd)](https://github.com/shd/logic2011/blob/master/conspect.pdf)
+      - [My notes (html)](https://github.com/DubKoldun/notes/blob/master/src/math-log-questions.html) (useful for exam)
       - [Hometasks](MathLog2018/PrRecFunctions/haskell/hw-theory.pdf)
       - [Lab tasks](MathLog2018/README.md)
 
