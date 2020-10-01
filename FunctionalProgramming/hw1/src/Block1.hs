@@ -63,8 +63,28 @@ instance Enum Nat where
   fromEnum Z = 0
   fromEnum (S rest) = fromEnum rest + 1 
 
+instance Eq Nat where
+  (==) :: Nat -> Nat -> Bool
+  (==) x y = show x == show y
+
+instance Ord Nat where
+  (<=) :: Nat -> Nat -> Bool
+  (<=) = toAbstractOperation (<=)
+
+toAbstractOperation :: (Int -> Int -> t) -> Nat -> Nat -> t
+toAbstractOperation f x y = fromEnum x `f` fromEnum y
+
+toNatOperation :: (Int -> Int -> Int) -> Nat -> Nat -> Nat
+toNatOperation f x y = toEnum $ toAbstractOperation f x y
+
 sum :: Nat -> Nat -> Nat
-sum x y = toEnum $ fromEnum x + fromEnum y
+sum = toNatOperation (+) 
+
+mul :: Nat -> Nat -> Nat
+mul = toNatOperation (*)
+
+
+
 
 
 
