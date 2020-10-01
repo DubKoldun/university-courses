@@ -7,7 +7,7 @@ import Data.Maybe ( fromJust )
 
 -- | Task 1. Weekday implementation 
 
--- | Declare class for days of the week
+-- | Declare type for days of the week
 data Weekday 
   = Monday
   | Tuesday
@@ -60,7 +60,7 @@ daysToParty day = (fromEnum Friday - fromEnum day) `mod` 7
 
 -- Task 2. Nat implementation
 
--- | Declare class Nat
+-- | Declare type for Nat
 data Nat 
   = Z 
   | S Nat
@@ -132,7 +132,28 @@ natDiv = toNatOperation div
 natMod :: Nat -> Nat -> Nat
 natMod = toNatOperation mod
 
--- Task 3. Tree implementation
+-- | Task 3. Tree implementation
 
+-- | Declare type for Binary Search Tree
+data Tree a
+  = Leaf
+  | Branch (Tree a) [a] (Tree a)  
 
+-- | Check tree on emptiness
+isEmpty :: Tree a -> Bool
+isEmpty Leaf = True
+isEmpty _    = False
+
+-- | Returns the size of list 
+size :: Tree a -> Int
+size Leaf            = 0
+size (Branch x ys z) = length ys + size x + size z 
+
+-- | 
+contains :: Ord a => a -> Tree a -> Bool
+contains elem Leaf                           = False
+contains elem (Branch x (y:_) z) | y == elem = True
+                                 | otherwise = if elem < y
+                                               then contains elem x
+                                               else contains elem z
 
