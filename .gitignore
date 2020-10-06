@@ -4,8 +4,11 @@ ASD/sem4/LabASD1/\.idea/
 **.cipher
 **.txt
 **.zip
-**.nix
+# **.nix
 **.hi
 **.o
 **Analyzer.hs
 **Parser.hs
+**.yaml**
+.stack**
+result**

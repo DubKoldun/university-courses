@@ -26,7 +26,8 @@ data Weekday
 -- | Define a list of all 'Weekday' constructors
 allDays :: [Weekday]
 allDays = 
-  [ Monday
+  [ 
+    Monday
   , Tuesday
   , Wednesday
   , Thursday
@@ -63,13 +64,13 @@ afterDays
   -> Weekday -- ^ result 'Weekday'
 afterDays day n = toEnum $ fromEnum day + n
 
--- | Takes a 'Weekday' and checks if the that is a weekend
+-- | Takes a 'Weekday' and checks if this is a weekend
 isWeekend 
   :: Weekday -- ^ 'Weekday' which we need to check 
-  -> Bool -- ^ result is 'True' if current day a weekend and 'False in other case
+  -> Bool -- ^ result is 'True' if current day is a weekend and 'False in other case
+isWeekend Sunday   = True
 isWeekend Saturday = True
-isWeekned Sunday   = True
-isWeekned _        = False
+isWeekend _        = False
 
 -- | Takes 'Weekday' and returns amount of days til the party
 daysToParty 

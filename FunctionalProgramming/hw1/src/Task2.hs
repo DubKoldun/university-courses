@@ -1,6 +1,18 @@
 {-# LANGUAGE InstanceSigs #-}
 
-module Task2 where
+module Task2 
+  (
+    Nat(..),
+
+    fromNat,
+    isEven,
+    natDiv,
+    natMod, 
+    natMul,
+    natSub,
+    natSum,
+    toNat
+  ) where
 
 -- | Declare type for the natrual numbers (Nat)
 data Nat 
@@ -9,9 +21,10 @@ data Nat
   deriving Show
 
 -- | Enum instance for Nat
-instance Enum Nat where 
+instance Enum Nat where
   toEnum :: Int -> Nat
-  toEnum = generate . abs 
+  toEnum n | n < 0     = generate 0
+           | otherwise = generate n  
     where
       generate :: Int -> Nat
       generate 0 = Z
@@ -24,7 +37,7 @@ instance Enum Nat where
 -- | Eq instance for comparsion for equality
 instance Eq Nat where
   (==) :: Nat -> Nat -> Bool
-  (==) x y = show x == show y
+  (==) = toAbstractOperation (==)
 
 -- | Ord instance for comparsion
 instance Ord Nat where
@@ -42,18 +55,18 @@ toNatOperation :: (Int -> Int -> Int) -> Nat -> Nat -> Nat
 toNatOperation f x y = toEnum $ toAbstractOperation f x y
 
 -- | Takes 2 'Nat' and returns their sum 
-sum :: Nat -> Nat -> Nat
-sum = toNatOperation (+) 
+natSum :: Nat -> Nat -> Nat
+natSum = toNatOperation (+) 
 
 -- | Takes 2 'Nat' and returns their multiplication 
-mul :: Nat -> Nat -> Nat
-mul = toNatOperation (*)
+natMul :: Nat -> Nat -> Nat
+natMul = toNatOperation (*)
 
 -- | Takes 2 'Nat' and returns their substraction 
-sub :: Nat -> Nat -> Nat
-sub Z     _     = Z
-sub x     Z     = x
-sub (S x) (S y) = sub x y 
+natSub :: Nat -> Nat -> Nat
+natSub Z     _     = Z
+natSub x     Z     = x
+natSub (S x) (S y) = natSub x y 
 
 -- | Convert Int to Nat 
 -- (using Enum function implementation)
