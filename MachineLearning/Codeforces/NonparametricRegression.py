@@ -1,4 +1,4 @@
-from math import sqrt, pi, e
+from math import sqrt, pi, e, cos
 
 n, m = input().split()
 n = int(n)
@@ -20,19 +20,19 @@ def convert(ma):
 
 matrix, main_attributes = convert(matrix)
 
-def euclidian_distance(vec1, vec2):
-    ans = 0
+def euclidean_distance(vec1, vec2):
+    ans = 0.
     for i in range(len(vec1)):
         ans += (vec1[i] - vec2[i]) ** 2
     return sqrt(ans)
 
 def manhattan_distance(vec1, vec2):
-    ans = 0
+    ans = 0.
     for i in range(len(vec1)):
         ans += abs(vec1[i] - vec2[i])
     return ans
 
-def chebishev_distance(vec1, vec2):
+def chebyshev_distance(vec1, vec2):
     ans = float("-inf")
     for i in range(len(vec1)):
         ans = max(ans, abs(vec1[i] - vec2[i]))
@@ -55,9 +55,9 @@ kernel_functions = {
 }
 
 distance_functions = {
-    "euclidean": euclidian_distance,
+    "euclidean": euclidean_distance,
     "manhattan": manhattan_distance,
-    "chebyshev": chebishev_distance
+    "chebyshev": chebyshev_distance
 }
 
 def suma(m):
@@ -66,33 +66,46 @@ def suma(m):
         buff += i
     return buff
 
-def kernel_regression(objs, x, neighbours = 0, window_size = 0, distance_function_name = "euclidian", kernel_function_name = "triangular", main_attribute_size = 4):
-    distance_function = distance_functions[distance_function_name]
-    kernel_function = kernel_functions[kernel_function_name]
-    window_size = float(window_size)
 
-    distances = [distance_function(x, obj) for obj in objs]
+distances_by_fun = {
+    "euclidean": [],
+    "manhattan": [],
+    "chebyshev": []
+}
+
+def calculate_distances():
+    for dis_fun_name in distance_functions.keys():
+        for obj1 in matrix:
+            buff = distance_functions[dis_fun_name](request, obj1)       
+            distances_by_fun[dis_fun_name].append(buff)
+
+calculate_distances()
+
+def kernel_regression(objs, x, neighbours = 0, window_size = 0, distance_function_name = "euclidean", kernel_function_name = "triangular"):
+    kernel_function = kernel_functions[kernel_function_name]
+
+    distances = distances_by_fun[distance_function_name]
     sorted = distances.copy()
     sorted.sort()
-    # print(sorted)
 
     window_parameter = 0.
     if (neighbours == 0):
-        window_parameter = float(window_size) if window_size != 0 else 1
+        window_parameter = float(window_size)
     else:
-        window_parameter = sorted[neighbours] if neighbours < len(sorted) else sorted[len(sorted)-1] # k_stat(distances, neighbours)
+        window_parameter = sorted[neighbours] 
     
     sum = 0.
     denominator = 0.
 
+    if (window_parameter == 0.):
+        window_parameter = 1.
 
     for i in range(len(objs)):
         buff = kernel_function(distances[i] / window_parameter)
         sum = sum + main_attributes[i] * buff
         denominator += buff
     
-    return sum / denominator if denominator != 0 else suma(main_attributes) / len(objs)
-
+    return sum / denominator if denominator != 0. else suma(main_attributes) / len(objs)
 
 dist_fun = input()
 ker_fun = input()
@@ -100,8 +113,8 @@ window_type = input()
 window_s = int(input())
 
 if (window_type == "variable"):
-    print('%.10f' % kernel_regression(matrix, request, neighbours = window_s, distance_function_name = dist_fun, kernel_function_name = ker_fun, main_attribute_size = 1))
+    print('%.10f' % kernel_regression(matrix, request, neighbours = window_s, distance_function_name = dist_fun, kernel_function_name = ker_fun))
 else:
-    print('%.10f' % kernel_regression(matrix, request, window_size = window_s, distance_function_name = dist_fun, kernel_function_name = ker_fun, main_attribute_size = 1)) 
+    print('%.10f' % kernel_regression(matrix, request, window_size = window_s, distance_function_name = dist_fun, kernel_function_name = ker_fun)) 
     
     
