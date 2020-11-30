@@ -31,15 +31,15 @@ for i in range(n):
             min_max_obj[j][1] = x
     
     objects.append(buff)
-
-if (n == 2):
-    print(31.0)
-    print(-60420.0)
-elif (n == 4):
-    print(2.0)
-    print(-1.0)
-else:
-
+blabla = 1
+# if (n == 2):
+#     print(31.0)
+#     print(-60420.0)
+# elif (n == 4):
+#     print(2.0)
+#     print(-1.0)
+# else:
+if blabla == 1:
     old_objects = [i.copy() for i in objects]
 
     def min_max(objs, mins_and_maxs): 
@@ -116,7 +116,7 @@ else:
 
     amount = 2000
 
-    def bgd(amount, batch_size = sqrt(n), h = 0.02, lmbd2 = 0.1):
+    def bgd(amount, batch_size = sqrt(n), h = 0.05, lmbd2 = 0.1):
         lmbd = 0.01
         start = rnd.randint(0, len(objects) - batch_size - 1)
 
