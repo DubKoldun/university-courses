@@ -34,7 +34,10 @@
   - __Content:__ haskell
 
     <details><summary> Labs </summary>
-    
+
+      - [Homework 1](FunctionalProgramming/hw1)
+      - [Homework 2](FunctionalProgramming/hw2)
+
     </details>
 
 ## [Translation Methods](TranslationMethods)
@@ -109,7 +112,8 @@
 
     <details><summary>Course structure</summary>
 
-      - [Some](ASD/sem3/LabASD1) TODO()
+      - [Some](ASD/sem3/LabASD1) 
+      TODO()
     
     </details>
 
