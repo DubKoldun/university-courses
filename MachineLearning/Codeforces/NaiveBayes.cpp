@@ -13,13 +13,6 @@ using std::cout;
 using std::cin;
 using std::log;
 
-template <typename T>
-void print(T const& mass) {
-    for (auto const& i: mass) {
-        cout << i << " ";
-    }
-}
-
 int main() {
     int class_am, train_am;
     long double smooth_intense;
