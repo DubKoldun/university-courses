@@ -16,24 +16,19 @@ using std::cout;
 using std::cin;
 using std::log;
 
-void naiveBayes(int nth, const char* from, const char* to) {
+void naiveBayes(int nth, const char* from, const char* to, long double leg_pen, long double spam_pen, long double smooth_intense) {
     std::ifstream in;
     in.open(from);
     std::ofstream out;
     out.open(to);
 
-
-    int class_am, train_am;
-    long double smooth_intense;
-    in >> class_am;
-    // cout << class_am;
+    int train_am = 0, class_am = 2;
 
     vector<long double> penalties(class_am);
-    for (auto & i: penalties) {
-        in >> i;
-    }
+    penalties[0] = leg_pen;
+    penalties[1] = spam_pen;
 
-    in >> smooth_intense >> train_am;
+    in >> train_am;
 
     vector<unordered_map<string, long double>> conditional_probabilities(class_am);
     vector<long double> class_doc_am(class_am, 0);
@@ -45,12 +40,19 @@ void naiveBayes(int nth, const char* from, const char* to) {
         class_doc_am[--cur_class] += 1;
         unordered_set<string> buff;
 
-        for (int j = 0; j < b; ++j) {
+        cout << b << "\n";
+        for (int j = 0; j < b;) {
             string cur_word = "", buff_z = "";
-            for (int z = 0; z < nth, j < b; ++z, ++j) {
+            for (int z = 0; z < nth && j < b; ++z, ++j) {
+                // cout << b << " " << j << " " << z << "\n";
                 in >> buff_z;
+                // cout << buff_z << "\n";
                 cur_word += buff_z;
+                // cout << cur_word << "\n";
+                // return;
             }
+            // cout << b << " " << j << "\n"; // << " " << z << "\n";
+            // in >> cur_word;
             word_set.insert(cur_word);
 
             if (conditional_probabilities[cur_class].find(cur_word) != conditional_probabilities[i].end()) {
@@ -88,12 +90,13 @@ void naiveBayes(int nth, const char* from, const char* to) {
         unordered_set<string> buff;
         long double denom = 0.0;
 
-        for (int j = 0; j < mess_am; ++j) {
+        for (int j = 0; j < mess_am;) {
             string cur_mess = "", buff_z = "";
-            for (int z = 0; z < nth, j < mess_am; ++z, ++j) {
+            for (int z = 0; z < nth && j < mess_am; ++z, ++j) {
                 in >> buff_z;
                 cur_mess += buff_z;
             }
+            // in >> cur_mess;
             buff.insert(cur_mess);
         } 
 
@@ -113,6 +116,10 @@ void naiveBayes(int nth, const char* from, const char* to) {
         }
         out << "\n";
     }
+
+
+
+    // out << nth;
 
 }
 
@@ -135,15 +142,23 @@ extern "C" {
         some(nth, path);
     }
 
-    void NaiveBayes(int nth, char* from, char* to) { naiveBayes(nth, from, to); }
+    void NaiveBayes(int nth, char* from, char* to, long double leg, long double spam, long double smooth) { 
+        
+        naiveBayes(nth, from, to, leg, spam, smooth); 
+        // print("some")
+    
+    }
 }
 
 int main() {
-    string path_from = "/home/vutaliy/prod/university-courses/MachineLearning/Bayes/test/test1";
-    string path_to = "/home/vutaliy/prod/university-courses/MachineLearning/Bayes/ans";
+    string path_from = "/home/vutaliy/prod/university-courses/MachineLearning/Bayes/test/test0";
+    string path_to = "/home/vutaliy/prod/university-courses/MachineLearning/Bayes/ans0";
 
-    int nth = 1;
+    int nth = 2;
 
-    naiveBayes(nth, path_from.c_str(), path_to.c_str());
+    naiveBayes(nth, path_from.c_str(), path_to.c_str(), 10, 1, 1e-5);
+    // string kek = "a";
+    // // kek += "a";
+    // cout << kek;
 
 }
