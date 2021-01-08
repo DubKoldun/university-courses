@@ -12,3 +12,10 @@ ASD/sem4/LabASD1/\.idea/
 **.yaml**
 .stack**
 result**
+**.out
+**__pycache__
+**.so
+**/Bayes/test
+**ans*
+
+
