@@ -5,6 +5,13 @@
 Используйте один терминал для всех имен переменных и имен типов.\
 Пример: `int a, *b, ***c, d;`
 
+Compile:
+ktc src/* -include-runtime -d run.jar
+java -jar run.jar
+
+graphviz:
+dot -Tpng tree/%inName%.dot -o %outName%
+
 
 ## Грамматика (интуитивная)
 |Nonterminal| |Rule|
