@@ -1,0 +1,17 @@
+digraph G { 
+	subgraph clusterHeader {
+		margin=0
+		style="invis"
+		HEADER [shape="box" label="int a, b;"];
+	}	1->2;
+	1->3;
+	3->4;
+	3->5;
+	1->6;
+	1[label=DescriptionsNAME];
+	2[label=VariableNAME];
+	3[label=PunctuationCOMMA];
+	4[label=VariableNAME];
+	5[label=PunctuationSEMICOLON];
+	6[label=DescriptionsEND];
+}
