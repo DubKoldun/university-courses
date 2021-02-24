@@ -1,0 +1,4 @@
+float a;
+long v;
+double c;
+int q,w,e,r,t;
