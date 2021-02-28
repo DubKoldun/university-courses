@@ -1,0 +1,1 @@
+= c 1 = d 2 = c 3 = a 1 = b 2 if && < a b == c d begin print + 3 2 end begin print + a b end while < a b begin = a + a 1 end

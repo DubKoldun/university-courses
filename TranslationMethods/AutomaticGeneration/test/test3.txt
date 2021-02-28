@@ -1,0 +1,1 @@
+= a 111 = b 12 if < a b begin print + 3 2 print < a b end begin if == a b begin print a while == a b begin print 1 = a + a 1 end end  end
