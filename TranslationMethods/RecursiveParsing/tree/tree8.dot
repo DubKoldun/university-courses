@@ -5,11 +5,13 @@ digraph G {
 		HEADER [shape="box" label="Custom_type *pog;"];
 	}	1->2;
 	2->3;
-	1->4;
+	3->4;
 	1->5;
+	1->6;
 	1[label=DescriptionsNAME];
 	2[label=VariablePOINTER];
 	3[label=VariableNAME];
-	4[label=PunctuationSEMICOLON];
-	5[label=DescriptionsEND];
+	4[label=Brs];
+	5[label=PunctuationSEMICOLON];
+	6[label=DescriptionsEND];
 }

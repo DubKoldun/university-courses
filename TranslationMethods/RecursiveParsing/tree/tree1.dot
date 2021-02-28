@@ -4,14 +4,18 @@ digraph G {
 		style="invis"
 		HEADER [shape="box" label="int a, b;"];
 	}	1->2;
-	1->3;
-	3->4;
-	3->5;
-	1->6;
+	2->3;
+	1->4;
+	4->5;
+	5->6;
+	4->7;
+	1->8;
 	1[label=DescriptionsNAME];
 	2[label=VariableNAME];
-	3[label=PunctuationCOMMA];
-	4[label=VariableNAME];
-	5[label=PunctuationSEMICOLON];
-	6[label=DescriptionsEND];
+	3[label=Brs];
+	4[label=PunctuationCOMMA];
+	5[label=VariableNAME];
+	6[label=Brs];
+	7[label=PunctuationSEMICOLON];
+	8[label=DescriptionsEND];
 }
