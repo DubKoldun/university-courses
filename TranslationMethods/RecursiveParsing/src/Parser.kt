@@ -25,6 +25,8 @@ class Parser {
 
     fun parseDescriptions() : ParseTree {
         val pt = ParseTree(StringBuilder(""), "Descriptions")
+        // print(lex.curToken)
+        // print(lex.curPos)
 
         when(lex.curToken) {
             Token.NAME -> {
@@ -45,6 +47,8 @@ class Parser {
 
     fun parsePunctuation() : ParseTree {
         val pt = ParseTree(StringBuilder(""), "Punctuation")
+        // print(lex.curToken)
+        // print(lex.curPos)
 
         when (lex.curToken) {
             Token.COMMA -> {
@@ -56,6 +60,9 @@ class Parser {
             Token.SEMICOLON -> {
                 pt.withNextToken()
             }
+            Token.END -> {
+
+            }
             else -> SyntaxException(listOf(Token.COMMA, Token.SEMICOLON), lex)
         }
 
@@ -65,11 +72,15 @@ class Parser {
 
     fun parseVariable() : ParseTree {
         val pt = ParseTree(StringBuilder(""), "Variable")
+        // print(lex.curToken)
+        // print(lex.curPos)
+
 
         when (lex.curToken) {
             Token.POINTER, Token.CONST -> {
                 pt.withNextToken()
                 val pv = parseVariable()
+                // val pb = parseBrs()
                 pt.addWithTree(listOf(pv), listOf(pv.str))
             }
             Token.AMPERSAND -> {
@@ -78,16 +89,54 @@ class Parser {
                 when (lex.curToken) {
                     Token.NAME -> {
                         pt.withNextToken()
+                        val pb = parseBrs()
+                        pt.addWithTree(listOf(pb), listOf(pb.str))
                     } 
                     else -> SyntaxException(listOf(Token.NAME), lex)
                 }
-            
             }
             Token.NAME -> {
                 pt.withNextToken()
+                val pb = parseBrs()
+                pt.addWithTree(listOf(pb), listOf(pb.str))
             }
             else -> SyntaxException(listOf(Token.NAME), lex)
         }
+        return pt
+    }
+
+    fun parseBrs() : ParseTree {
+        val pt = ParseTree(StringBuilder(""), "Brs")
+        // print(lex.curToken)
+        // print(lex.curPos)
+
+        when (lex.curToken) {
+            Token.BRACKETL -> {
+                pt.withNextToken()
+
+                when (lex.curToken) {
+
+                    Token.NUMBER -> {
+                        pt.withNextToken()
+
+                        when (lex.curToken) {
+                            Token.BRACKETR -> {
+                                pt.withNextToken()
+                                val pb = parseBrs()
+                                pt.addWithTree(listOf(pb), listOf(pb.str))
+                            }
+                            else -> SyntaxException(listOf(Token.BRACKETR), lex)
+                        }
+                    } 
+                    else -> SyntaxException(listOf(Token.NUMBER), lex)
+                }
+                
+            }
+            Token.COMMA, Token.SEMICOLON -> {
+            }
+            else -> SyntaxException(listOf(Token.BRACKETL, Token.COMMA, Token.SEMICOLON), lex)
+        }
+
         return pt
     }
 

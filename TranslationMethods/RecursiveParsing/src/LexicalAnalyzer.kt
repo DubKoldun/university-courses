@@ -54,9 +54,20 @@ class LexicalAnalyzer(val ins : InputStream) {
                     sb.append(curChar.toChar())
                     nextChar()
                 }
-
+                
                 curWord = sb.toString()
                 curToken = string2token(curWord)
+            }
+            in '0'..'9' -> {
+                val sb = StringBuilder()
+
+                while(curChar.toChar().isDigit()) {
+                    sb.append(curChar.toChar())
+                    nextChar()
+                }
+
+                curWord = sb.toString()
+                curToken = Token.NUMBER
             }
             '*' ->  {
                 curToken = Token.POINTER
@@ -78,6 +89,15 @@ class LexicalAnalyzer(val ins : InputStream) {
                 curToken = Token.END
                 nextChar()
             }
+            '[' -> {
+                curToken = Token.BRACKETL
+                nextChar()
+            }
+            ']' -> {
+                curToken = Token.BRACKETR
+                nextChar()
+            }
+
             else -> throw ParseException("Illegal character: " + curChar.toChar() + " at position: " + curPos, curPos)
         }
 
