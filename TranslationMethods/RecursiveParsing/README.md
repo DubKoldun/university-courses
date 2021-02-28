@@ -24,9 +24,12 @@ dot -Tpng tree/%inName%.dot -o %outName%
 | | | |
 | Variable | $\rightarrow$ | '*'Variable |
 | Variable | $\rightarrow$ | 'const' Variable |
-| Variable | $\rightarrow$ | &NAME |
-| Variable | $\rightarrow$ | NAME |
+| Variable | $\rightarrow$ | &NAME Brs |
+| Variable | $\rightarrow$ | NAME Brs |
 | | | |
+| Brs | $\rightarrow$ | '[]'Brs |
+| Brs | $\rightarrow$ | $\epsilon$
+||||
 
 |Terminal | Token|
 | - | - |
