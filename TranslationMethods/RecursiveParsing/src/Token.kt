@@ -1,5 +1,5 @@
 enum class Token {
-    POINTER, AMPERSAND, SEMICOLON, COMMA, CONST, NAME, END, BRACKETL, BRACKETR, NUMBER
+    POINTER, AMPERSAND, SEMICOLON, COMMA, CONST, NAME, END, BRACKETL, BRACKETR, NUMBER,
 }
 
 fun string2token(str : String) : Token = when(str) {
