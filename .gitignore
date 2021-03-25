@@ -2,7 +2,7 @@ JavaAdvanced/
 ASD/sem4/LabASD1/\.idea/
 **.jar
 **.cipher
-**.txt
+**^[test].txt
 **.zip
 # **.nix
 **.hi
@@ -16,6 +16,11 @@ result**
 **__pycache__
 **.so
 **/Bayes/test
-**ans*
-
-
+**ans.*
+**/.idea
+**/gen
+**out
+**lib
+*.xml
+**iml
+# **/**.dot
